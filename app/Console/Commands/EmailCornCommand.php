@@ -7,6 +7,7 @@ use App\EmailTpl;
 use App\Jobs\EmailJob;
 use App\User;
 use Illuminate\Console\Command;
+use Illuminate\Support\Carbon;
 
 class EmailCornCommand extends Command
 {
@@ -41,7 +42,7 @@ class EmailCornCommand extends Command
      */
     public function handle()
     {
-        EmailCorn::whereIsSend(0)->chunkById(100,function ($items){
+        EmailCorn::whereIsSend(0)->where('time','<',Carbon::now())->chunkById(100,function ($items){
             foreach ($items as $item){
 
                //查询出模板
