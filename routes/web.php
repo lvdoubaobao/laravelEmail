@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   $aa= \Illuminate\Support\Facades\Mail::to('q736400469@gmail.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::find(1),'736400469@mslynnhair.com','呵呵呵111'));
-   dd($aa);
+  /* $aa= \Illuminate\Support\Facades\Mail::to('q736400469@gmail.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::find(1),'736400469@mslynnhair.com','呵呵呵111'));
+   dd($aa);*/
 });
