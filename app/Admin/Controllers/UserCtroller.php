@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Actions\User\ImportData;
+use App\Admin\Actions\User\ImportPost;
 use App\User;
 use App\UserTag;
 use Encore\Admin\Controllers\AdminController;
@@ -53,6 +54,7 @@ class UserCtroller extends AdminController
         $grid->column('created_at', __('创建时间'));
         $grid->tools(function (Grid\Tools $tools){
             $tools->append(new ImportData());
+            $tools->append(new ImportPost());
         });
         return $grid;
     }
