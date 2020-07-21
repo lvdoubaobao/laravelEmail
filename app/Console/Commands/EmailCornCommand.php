@@ -49,7 +49,7 @@ class EmailCornCommand extends Command
               $email= EmailTpl::find($item->tpl_id);
               User::whereTagId($item->tag_id)->chunkById(100,function ($users)use($email,$item){
                   foreach ($users as $user){
-                    dispatch(new EmailJob($user, $email,$item->address,$item->address_name));
+                    dispatch(new EmailJob($user, $email,$item));
                   }
               });
               $item->is_send=1;

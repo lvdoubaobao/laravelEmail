@@ -19,7 +19,7 @@ class ImportPost extends Action
     public function html()
     {
         return <<<HTML
-        <a class="btn btn-sm btn-default import-post">下载实例导入模板</a>
+        <a class="btn btn-sm btn-default import-post">下载示例导入模板</a>
 HTML;
     }
 }
