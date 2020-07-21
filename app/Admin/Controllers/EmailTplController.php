@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\EmailCorn;
 use App\EmailTpl;
 use App\Mail\OrderShipped;
 use Encore\Admin\Controllers\AdminController;
@@ -48,7 +49,7 @@ class EmailTplController extends AdminController
 
 
 
-        return new OrderShipped($EmailTpl);
+        return new OrderShipped($EmailTpl,EmailCorn::first());
     }
 
     /**
