@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe36f0e1fd9aedce4b33b3d24be992b8",
+    "content-hash": "10c828a3391ae3be913d04da94480192",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3060,6 +3060,62 @@
             "time": "2020-05-03T19:32:03+00:00"
         },
         {
+            "name": "pubnub/pubnub",
+            "version": "4.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pubnub/php.git",
+                "reference": "4e5e1a50cfcff1284e9b89f78ebd592fda55d169"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pubnub/php/zipball/4e5e1a50cfcff1284e9b89f78ebd592fda55d169",
+                "reference": "4e5e1a50cfcff1284e9b89f78ebd592fda55d169",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "monolog/monolog": "^1.1|^2.0",
+                "php": ">=5.6.0",
+                "rmccue/requests": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PubNub\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PubNub",
+                    "email": "support@pubnub.com"
+                }
+            ],
+            "description": "The Only Global Network For Real-Time Data -- PubNub!",
+            "homepage": "http://www.pubnub.com/",
+            "keywords": [
+                "ajax",
+                "api",
+                "push",
+                "real time",
+                "real-time",
+                "realtime"
+            ],
+            "time": "2019-10-24T15:41:15+00:00"
+        },
+        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -3264,6 +3320,144 @@
                 }
             ],
             "time": "2020-03-29T20:13:32+00:00"
+        },
+        {
+            "name": "ringcentral/ringcentral-php",
+            "version": "2.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ringcentral/ringcentral-php.git",
+                "reference": "99c64f5f491e8bfad0eb6dd99b8ddccd938e5031"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ringcentral/ringcentral-php/zipball/99c64f5f491e8bfad0eb6dd99b8ddccd938e5031",
+                "reference": "99c64f5f491e8bfad0eb6dd99b8ddccd938e5031",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.3.3",
+                "guzzlehttp/psr7": "^1.4.2",
+                "php": ">=7.1",
+                "pubnub/pubnub": "^4.0.0",
+                "symfony/event-dispatcher": "^2|^3|^4|^5"
+            },
+            "require-dev": {
+                "macfja/phar-builder": "^0.2.8",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^7.5.12"
+            },
+            "suggest": {
+                "ext-openssl": "to decrypt PubNub messages"
+            },
+            "type": "library",
+            "extra": {
+                "phar-builder": {
+                    "compression": "gzip",
+                    "name": "ringcentral.phar",
+                    "output-dir": "./dist",
+                    "entry-point": "./vendor/autoload.php",
+                    "skip-shebang": true,
+                    "include": [],
+                    "excluded": [
+                        "vendor/bin"
+                    ],
+                    "include-dev": false
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "RingCentral\\SDK\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kirill Konshin",
+                    "email": "kirill.konshin@ringcentral.com"
+                },
+                {
+                    "name": "RingCentral, Inc.",
+                    "email": "devsupport@ringcentral.com"
+                }
+            ],
+            "description": "RingCentral Connect Platform PHP SDK",
+            "homepage": "http://developers.ringcentral.com",
+            "keywords": [
+                "api",
+                "connect",
+                "php",
+                "platform",
+                "ringcentral",
+                "sdk"
+            ],
+            "time": "2020-03-07T00:54:57+00:00"
+        },
+        {
+            "name": "rmccue/requests",
+            "version": "v1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rmccue/Requests.git",
+                "reference": "87932f52ffad70504d93f04f15690cf16a089546"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rmccue/Requests/zipball/87932f52ffad70504d93f04f15690cf16a089546",
+                "reference": "87932f52ffad70504d93f04f15690cf16a089546",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "require-dev": {
+                "requests/test-server": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Requests": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan McCue",
+                    "homepage": "http://ryanmccue.info"
+                }
+            ],
+            "description": "A HTTP library written in PHP, for human beings.",
+            "homepage": "http://github.com/rmccue/Requests",
+            "keywords": [
+                "curl",
+                "fsockopen",
+                "http",
+                "idna",
+                "ipv6",
+                "iri",
+                "sockets"
+            ],
+            "time": "2016-10-13T00:11:37+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

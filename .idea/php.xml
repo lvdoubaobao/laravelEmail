@@ -122,6 +122,9 @@
       <path value="$PROJECT_DIR$/vendor/codingyu/laravel-ueditor" />
       <path value="$PROJECT_DIR$/vendor/codingyu/ueditor" />
       <path value="$PROJECT_DIR$/vendor/laravel-admin-ext/log-viewer" />
+      <path value="$PROJECT_DIR$/vendor/ringcentral/ringcentral-php" />
+      <path value="$PROJECT_DIR$/vendor/rmccue/requests" />
+      <path value="$PROJECT_DIR$/vendor/pubnub/pubnub" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />
