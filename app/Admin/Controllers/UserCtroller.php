@@ -7,6 +7,7 @@ use App\Admin\Actions\User\ImportPost;
 use App\User;
 use App\UserTag;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -52,7 +53,11 @@ class UserCtroller extends AdminController
 
         });
         $grid->column('created_at', __('创建时间'));
+        if (!Admin::user()->can('customer.export')){
+            $grid->disableExport();
+        }
         $grid->tools(function (Grid\Tools $tools){
+
             $tools->append(new ImportData());
             $tools->append(new ImportPost());
         });
