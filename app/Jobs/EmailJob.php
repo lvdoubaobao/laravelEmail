@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 
 class EmailJob implements ShouldQueue
 {
@@ -38,9 +39,17 @@ class EmailJob implements ShouldQueue
     public function handle()
     {
 
-            \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn));
-             sleep(1);
-            Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
+
+                Redis::throttle('key')->allow(10)->every(60)->then(function () {
+                    // 任务逻辑...
+                    \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn));
+                    Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
+                }, function () {
+                    // 无法获得锁...
+
+                    return $this->release(10);
+                });
+
 
 
     }
