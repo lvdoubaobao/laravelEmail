@@ -37,12 +37,16 @@ class EmailJob implements ShouldQueue
      */
     public function handle()
     {
-        try {
+
             \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn));
+             sleep(1);
             Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
-        }catch (\Exception $exception){
-            Log::channel('email_error')->error($this->user->email.':'.$this->emailTpl->name,[$exception->getMessage()]);
-        }
+
+
+    }
+    public function  failed(\Exception $exception){
+
+        Log::channel('email_error')->error($this->user->email.':'.$this->emailTpl->name,[$exception->getMessage()]);
 
     }
 }
