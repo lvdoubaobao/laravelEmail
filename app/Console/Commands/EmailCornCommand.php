@@ -44,7 +44,6 @@ class EmailCornCommand extends Command
     {
         EmailCorn::whereIsSend(0)->where('time','<',Carbon::now())->chunkById(100,function ($items){
             foreach ($items as $item){
-
                //查询出模板
               $email= EmailTpl::find($item->tpl_id);
               User::whereTagId($item->tag_id)->chunkById(100,function ($users)use($email,$item){
