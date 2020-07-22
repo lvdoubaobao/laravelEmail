@@ -11,7 +11,7 @@ use Illuminate\Queue\SerializesModels;
 
 class OrderShipped extends Mailable
 {
-    use Queueable, SerializesModels;
+
     protected $emailTpl;
     protected $emailCorn;
 
