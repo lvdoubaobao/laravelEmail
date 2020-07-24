@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-/*   $aa= \Illuminate\Support\Facades\Mail::to('736400469@qq.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::find(1),'736400469@mslynnhair.com','呵呵呵111'));
-   dd($aa);*/
-  $aa=  new \App\Reoisitory\RingcentralReoisitory();
-  dd($aa->sendSms());
+  $aa= \Illuminate\Support\Facades\Mail::to('73640046@email.mslynnhair.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::find(2),\App\EmailCorn::first()));
+   dd($aa);
+
+//  $aa=  new \App\Reoisitory\RingcentralReoisitory();
+ // dd($aa->sendSms());
 });

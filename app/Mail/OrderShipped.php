@@ -7,6 +7,7 @@ use App\EmailTpl;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Transport\MailgunTransport;
 use Illuminate\Queue\SerializesModels;
 
 class OrderShipped extends Mailable
@@ -39,6 +40,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
+
        if ($this->emailCorn->address){
             return    $this->from($this->emailCorn->address,$this->emailCorn->address_name)
                ->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc]);
@@ -46,5 +48,13 @@ class OrderShipped extends Mailable
            return  $this->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc]);
        }
 
+    }
+    protected function formatDesc(){
+        $filter=[
+            '*|EMAIL|*',
+            '*|LIST:ADDRESSLINE|*',
+            '*|REWARDS|*',
+
+        ];
     }
 }

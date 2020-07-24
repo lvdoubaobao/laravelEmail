@@ -23,8 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravelEmail.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravelEmail.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/EmailCornCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/EmailCornCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/EmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/EmailJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/OrderShipped.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/OrderShipped.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +170,20 @@
       <path value="$PROJECT_DIR$/vendor/ringcentral/ringcentral-php" />
       <path value="$PROJECT_DIR$/vendor/rmccue/requests" />
       <path value="$PROJECT_DIR$/vendor/pubnub/pubnub" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/kriswallsmith/buzz" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/nyholm/psr7" />
+      <path value="$PROJECT_DIR$/vendor/mailgun/mailgun-php" />
+      <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message" />
+      <path value="$PROJECT_DIR$/vendor/php-http/discovery" />
+      <path value="$PROJECT_DIR$/vendor/php-http/message-factory" />
+      <path value="$PROJECT_DIR$/vendor/php-http/multipart-stream-builder" />
+      <path value="$PROJECT_DIR$/vendor/php-http/client-common" />
     </include_path>
   </component>
   <component name="ProjectId" id="1enxBozQ4To8nTFNWJmgmm4Bhsg" />
@@ -175,7 +196,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mazanto" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -212,7 +233,7 @@
       <workItem from="1595377583261" duration="7974000" />
       <workItem from="1595391943076" duration="2749000" />
       <workItem from="1595402803757" duration="4114000" />
-      <workItem from="1595490312936" duration="4067000" />
+      <workItem from="1595490312936" duration="15299000" />
     </task>
     <servers />
   </component>
@@ -236,10 +257,10 @@
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
     <state x="2126" y="236" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595292229096" />
-    <state x="2180" y="191" key="FileChooserDialogImpl" timestamp="1595399888023">
+    <state x="2180" y="191" key="FileChooserDialogImpl" timestamp="1595571257883">
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
-    <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595399888023" />
+    <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595571257883" />
     <state x="2112" y="156" key="NewPhpClassDialog" timestamp="1595237647447">
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
@@ -256,9 +277,9 @@
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
     <state x="2102" y="139" width="596" height="594" key="find.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595380362816" />
-    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1595402992450">
+    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1595557559656">
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
-    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595402992450" />
+    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595557559656" />
   </component>
 </project>
