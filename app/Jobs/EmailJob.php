@@ -24,7 +24,7 @@ class EmailJob implements ShouldQueue
      *
      * @var int
      */
-    public $tries = 25;
+    public $tries = 1;
     /**
      * 在超时之前任务可以运行的秒数
      *
@@ -36,7 +36,7 @@ class EmailJob implements ShouldQueue
      *
      * @var int
      */
-    public $maxExceptions = 3;
+    public $maxExceptions = 1;
     /**
      * Create a new job instance.
      *
@@ -62,12 +62,8 @@ class EmailJob implements ShouldQueue
                     Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
                 }, function () {
                     // 无法获得锁...
-
                     return $this->release(10);
                 });
-
-
-
     }
     public function  failed(\Exception $exception){
 
