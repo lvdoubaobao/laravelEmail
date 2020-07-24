@@ -23,8 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/EmailCornCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/EmailCornCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/EmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/EmailJob.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,7 +211,7 @@
       <workItem from="1595377583261" duration="7974000" />
       <workItem from="1595391943076" duration="2749000" />
       <workItem from="1595402803757" duration="4114000" />
-      <workItem from="1595490312936" duration="2636000" />
+      <workItem from="1595490312936" duration="3165000" />
     </task>
     <servers />
   </component>
