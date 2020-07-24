@@ -25,6 +25,7 @@
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/EmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/EmailJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +227,7 @@
       <workItem from="1595377583261" duration="7974000" />
       <workItem from="1595391943076" duration="2749000" />
       <workItem from="1595402803757" duration="4114000" />
-      <workItem from="1595490312936" duration="17230000" />
+      <workItem from="1595490312936" duration="18414000" />
     </task>
     <servers />
   </component>
@@ -250,10 +251,14 @@
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
     <state x="2126" y="236" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595292229096" />
-    <state x="2180" y="191" key="FileChooserDialogImpl" timestamp="1595571257883">
+    <state x="2130" y="191" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1595579904766">
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
-    <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595571257883" />
+    <state x="2130" y="191" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595579904766" />
+    <state x="2180" y="191" key="FileChooserDialogImpl" timestamp="1595580566293">
+      <screen x="1600" y="6" width="1600" height="860" />
+    </state>
+    <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595580566293" />
     <state x="2112" y="156" key="NewPhpClassDialog" timestamp="1595237647447">
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
@@ -270,9 +275,9 @@
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
     <state x="2102" y="139" width="596" height="594" key="find.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595380362816" />
-    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1595557559656">
+    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1595580900266">
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
-    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595557559656" />
+    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595580900266" />
   </component>
 </project>

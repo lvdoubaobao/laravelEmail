@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  $aa= \Illuminate\Support\Facades\Mail::to('73640046@email.mslynnhair.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::find(2),\App\EmailCorn::first()));
-   dd($aa);
+
+
 
 //  $aa=  new \App\Reoisitory\RingcentralReoisitory();
  // dd($aa->sendSms());
