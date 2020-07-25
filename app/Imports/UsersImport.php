@@ -24,6 +24,7 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     public  $tag;
     public function __construct($tag)
     {
+
         $this->tag=$tag;
     }
     public function headingRow(): int
@@ -55,8 +56,11 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     public function rules():array
     {
         return [
-          'email'=>'required|unique:users'
+
         ];
+ /*       return [
+          'email'=>'required|unique:users'
+        ];*/
 
     }
     public function chunkSize(): int
