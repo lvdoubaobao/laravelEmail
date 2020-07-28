@@ -55,10 +55,10 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     }
     public function rules():array
     {
-
-     return [
+        return [];
+     /*return [
           'email'=>'required|unique:users'
-        ];
+        ];*/
 
     }
     public function chunkSize(): int
