@@ -30,33 +30,7 @@ class ImportData extends Action
 
     }
 
-    protected function addScript()
-    {
 
-        if (!is_null($this->interactor)) {
-            return $this->interactor->addScript();
-        }
-
-        $parameters = json_encode($this->parameters());
-
-        $script = <<<SCRIPT
-
-(function ($) {
-    $('{$this->selector($this->selectorPrefix)}').off('{$this->event}').on('{$this->event}', function() {
-        var data = $(this).data();
-        var target = $(this);
-        Object.assign(data, {$parameters});
-        {$this->actionScript()}
-
-        {$this->buildActionPromise1()}
-        {$this->handleActionPromise()}
-    });
-})(jQuery);
-
-SCRIPT;
-
-        Admin::script($script);
-    }
 
     public function html()
     {
