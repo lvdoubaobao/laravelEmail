@@ -67,11 +67,11 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     }
     public function chunkSize(): int
     {
-       return 10;
+       return 100;
     }
     public function batchSize(): int
     {
-       return 10;
+       return 100;
     }
 
 
