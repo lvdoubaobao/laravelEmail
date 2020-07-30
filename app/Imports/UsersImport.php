@@ -55,10 +55,14 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     }
     public function rules():array
     {
-        return [];
-     /*return [
-          'email'=>'required|unique:users'
-        ];*/
+
+     return [
+          'email'=>['required',
+                    Rule::unique('users')->where(function($query){
+                        $query->where('tag_id',$this->tag);
+                    })
+              ]
+        ];
 
     }
     public function chunkSize(): int

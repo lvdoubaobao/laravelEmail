@@ -23,8 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Jobs/ImportJob.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Actions/User/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Actions/User/ImportData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/UsersImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/UsersImport.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +231,7 @@
       <workItem from="1595402803757" duration="4114000" />
       <workItem from="1595490312936" duration="23669000" />
       <workItem from="1595903406071" duration="2087000" />
-      <workItem from="1595984642078" duration="3479000" />
+      <workItem from="1595984642078" duration="8494000" />
     </task>
     <servers />
   </component>
