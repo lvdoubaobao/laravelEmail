@@ -8,8 +8,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class ImportJob implements ShouldQueue
 {
@@ -34,6 +36,21 @@ class ImportJob implements ShouldQueue
      */
     public function handle()
     {
-        Excel::import(new UsersImport($this->tag),storage_path('app/'.$this->file));
+        try {
+            Excel::import(new UsersImport($this->tag),storage_path('app/'.$this->file));
+        }catch (ValidationException $exception){
+            $failures = $exception->failures();
+            foreach ($failures as $failure) {
+                $failure->row(); // row that went wrong
+                $failure->attribute(); // either heading key (if using heading row concern) or column index
+                $failure->errors(); // Actual error messages from Laravel validator
+                $failure->values(); // The values of the row that has failed.
+            }
+        }
+
+    }
+    public function  failed(\Exception $exception){
+        Log::error('上传失败',[$exception->getMessage()]);
+
     }
 }

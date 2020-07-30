@@ -3,11 +3,13 @@
 namespace App\Imports;
 
 use App\User;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
 use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
+use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
@@ -17,7 +19,7 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 use Throwable;
 
-class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValidation,WithHeadingRow,SkipsOnError
+class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValidation,WithHeadingRow,SkipsOnError,SkipsOnFailure
 {
     use Importable,SkipsFailures,SkipsErrors;
 
@@ -58,31 +60,19 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
 
      return [
           'email'=>['required',
-                    Rule::unique('users')->where(function($query){
-                        $query->where('tag_id',$this->tag);
-                    })
+                  Rule::unique('users')->where('tag_id',$this->tag)
               ]
         ];
 
     }
     public function chunkSize(): int
     {
-        return 20;
+       return 10;
     }
     public function batchSize(): int
     {
-       return 20;
+       return 10;
     }
-    /**
-     * @param Failure[] $failures
-     */
-    public function onFailure(Failure ...$failures)
-    {
 
-    }
-    public function onError(Throwable $e)
-    {
 
-        // TODO: Implement onError() method.
-    }
 }

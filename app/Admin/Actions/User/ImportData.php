@@ -24,7 +24,7 @@ class ImportData extends Action
 
         $tag=$request->input('tag');
         dispatch(new ImportJob($tag,$name) );
-       // Excel::import(new UsersImport($tag),$file);
+    //   Excel::import(new UsersImport($tag),storage_path('app/'.$name));
 
         return $this->response()->success('已成功上传')->refresh();
     }
@@ -38,6 +38,6 @@ class ImportData extends Action
     {
         return <<<HTML
         <a class="btn btn-sm btn-success import-data">导入客户</a>
- HTML;
+HTML;
     }
 }
