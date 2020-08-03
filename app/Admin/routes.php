@@ -18,6 +18,7 @@ Route::group([
 
     $router->resource('email-tpls', EmailTplController::class);
     $router->resource('email-corns', EmailCornController::class);
+    $router->resource('user-suppressions', UserSuppressionController::class);
 
 
 });

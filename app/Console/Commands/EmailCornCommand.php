@@ -6,6 +6,7 @@ use App\EmailCorn;
 use App\EmailTpl;
 use App\Jobs\EmailJob;
 use App\User;
+use App\UserSuppression;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
 
@@ -48,7 +49,15 @@ class EmailCornCommand extends Command
               $email= EmailTpl::find($item->tpl_id);
               User::whereTagId($item->tag_id)->chunkById(100,function ($users)use($email,$item){
                   foreach ($users as $user){
-                    dispatch(new EmailJob($user, $email,$item));
+                      /**
+                       * @var User $user
+                       */
+                      //判断是否在垃圾箱
+                   $userSuppression= UserSuppression::whereAddress($user->email)->first();
+                   if (!$userSuppression){
+                       dispatch(new EmailJob($user, $email,$item));
+                   }
+
                   }
               });
               $item->is_send=1;
