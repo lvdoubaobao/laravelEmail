@@ -64,6 +64,77 @@ namespace App{
 
 namespace App{
 /**
+ * App\PhoneCorn
+ *
+ * @property int $id
+ * @property int|null $phone_tpl_id
+ * @property string|null $send_time
+ * @property int|null $is_send
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int|null $tag_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereIsSend($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn wherePhoneTplId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereSendTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereTagId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereUpdatedAt($value)
+ */
+	class PhoneCorn extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\PhoneLog
+ *
+ * @property int $id
+ * @property string|null $status
+ * @property string|null $phone
+ * @property string|null $message
+ * @property string|null $reason
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog wherePhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereReason($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereUpdatedAt($value)
+ */
+	class PhoneLog extends \Eloquent {}
+}
+
+namespace App{
+/**
+ * App\PhoneTpl
+ *
+ * @property int $id
+ * @property string|null $tpl
+ * @property string|null $name
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereTpl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereUpdatedAt($value)
+ */
+	class PhoneTpl extends \Eloquent {}
+}
+
+namespace App{
+/**
  * App\User
  *
  * @property int $id

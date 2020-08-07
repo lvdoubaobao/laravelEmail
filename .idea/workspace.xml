@@ -24,11 +24,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper_models.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper_models.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/EmailCornCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/EmailCornCommand.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,7 +193,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ruiyudesign" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -237,7 +236,11 @@
       <workItem from="1595984642078" duration="13510000" />
       <workItem from="1596098444166" duration="2486000" />
       <workItem from="1596419508861" duration="459000" />
-      <workItem from="1596420163225" duration="5957000" />
+      <workItem from="1596420163225" duration="9725000" />
+      <workItem from="1596527107997" duration="8057000" />
+      <workItem from="1596673460091" duration="1205000" />
+      <workItem from="1596685037564" duration="1916000" />
+      <workItem from="1596696977656" duration="13465000" />
     </task>
     <servers />
   </component>
@@ -270,9 +273,10 @@
     </state>
     <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596094961924" />
     <state x="2130" y="191" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595579904766" />
-    <state x="2180" y="191" key="FileChooserDialogImpl" timestamp="1595660020569">
-      <screen x="1600" y="6" width="1600" height="860" />
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1596695673367">
+      <screen x="0" y="0" width="1600" height="860" />
     </state>
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596695673367" />
     <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595660020569" />
     <state x="2112" y="156" key="NewPhpClassDialog" timestamp="1595237647447">
       <screen x="1600" y="6" width="1600" height="860" />
@@ -286,14 +290,15 @@
       <screen x="1600" y="6" width="1600" height="860" />
     </state>
     <state x="1901" y="80" key="SettingsEditor/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595659447265" />
-    <state x="2102" y="139" width="596" height="594" key="find.popup" timestamp="1595380362816">
-      <screen x="1600" y="6" width="1600" height="860" />
-    </state>
-    <state x="2102" y="139" width="596" height="594" key="find.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595380362816" />
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1596423880139">
+    <state x="502" y="133" width="596" height="594" key="find.popup" timestamp="1596772348127">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596423880139" />
+    <state x="502" y="133" width="596" height="594" key="find.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596772348127" />
+    <state x="2102" y="139" width="596" height="594" key="find.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595380362816" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1596771325277">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596771325277" />
     <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595657673273" />
   </component>
 </project>

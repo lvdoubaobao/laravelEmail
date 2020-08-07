@@ -16,12 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
- $mgClient=   \Mailgun\Mailgun::create('key-9989fc3ec241ca3ff413aa997d83f80e');
-  $result=   $mgClient->suppressions()->bounces()->index('email.mslynnhair.com');
-  dump($result);
-   $result2= $mgClient->suppressions()->bounces()->nextPage($result);
-   dd($result2);
-//  $aa=  new \App\Reoisitory\RingcentralReoisitory();
- // dd($aa->sendSms());
+ $aa=  new \App\Reoisitory\RingcentralReoisitory();
+ dd($aa->sendSms(\App\User::first(),\App\PhoneTpl::first()));
 });

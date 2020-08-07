@@ -20,5 +20,8 @@ Route::group([
     $router->resource('email-corns', EmailCornController::class);
     $router->resource('user-suppressions', UserSuppressionController::class);
 
+    $router->resource('phone-tpls', PhoneTplController::class);
+    $router->resource('phone-corns', PhoneCornController::class);
+    $router->resource('phone-logs', PhoneLogController::class);
 
 });

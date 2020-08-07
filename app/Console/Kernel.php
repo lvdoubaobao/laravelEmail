@@ -28,6 +28,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('user:send 1')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 2')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 0')->everyTwoHours()->withoutOverlapping();
+        $schedule->command('phone:corn')->everyMinute()->withoutOverlapping();
     }
 
     /**
