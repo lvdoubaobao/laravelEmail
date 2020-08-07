@@ -30,7 +30,10 @@ class PhoneLogController extends AdminController
         $grid->column('phone', __('手机号'));
         $grid->column('status', __('状态'))->display(function ($value){
             return $value==1 ? '发送成功' : '发送失败';
-        });
+        })->label([
+            0=>'warning',
+            1=>'success'
+        ]);
         $grid->column('message', __('信息'));
         $grid->column('reason', __('失败原因'));
         $grid->column('created_at', __('创建时间'));

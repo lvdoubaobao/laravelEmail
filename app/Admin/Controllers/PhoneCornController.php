@@ -38,7 +38,10 @@ class PhoneCornController extends AdminController
         $grid->column('send_time', __('发送时间'));
         $grid->column('is_send', __('是否发送'))->display(function ($value){
             return $value==0 ? '未发送' : '已发送';
-        });
+        })->label([
+            0=>'warning',
+            1=>'success'
+        ]);
         $grid->column('created_at', __('创建时间'));
 
 
