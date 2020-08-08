@@ -3,7 +3,7 @@
 namespace App\Admin\Actions\Ringcentral;
 
 use App\Reoisitory\RingcentralReoisitory;
-use App\Ringcenter;
+use App\RingCenter;
 use Encore\Admin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;

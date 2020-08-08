@@ -5,7 +5,7 @@ namespace App\Reoisitory;
 
 use App\PhoneLog;
 use App\PhoneTpl;
-use App\Ringcenter;
+use App\RingCenter;
 use App\User;
 use RingCentral\SDK\SDK;
 class RingcentralReoisitory
@@ -13,7 +13,7 @@ class RingcentralReoisitory
     protected $rcsdk;
     protected $platform;
     protected $ringcenter;
-    public function __construct(Ringcenter $ringcenter)
+    public function __construct(RingCenter $ringcenter)
     {
           $this->ringcenter=$ringcenter;
           $this->rcsdk= new SDK(

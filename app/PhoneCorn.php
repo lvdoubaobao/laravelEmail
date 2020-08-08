@@ -27,13 +27,13 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereTagId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Ringcenter[] $ringcenter
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\RingCenter[] $ringcenter
  * @property-read int|null $ringcenter_count
  */
 class PhoneCorn extends Model
 {
     protected $table='phone_corn';
     public function ringcenter(){
-        return $this->belongsToMany(Ringcenter::class,'phone_ringcenter','corn_id','ringcenter_id');
+        return $this->belongsToMany(RingCenter::class,'phone_ringcenter','corn_id','ringcenter_id');
     }
 }

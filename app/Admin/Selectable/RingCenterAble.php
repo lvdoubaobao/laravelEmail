@@ -4,13 +4,13 @@
 namespace App\Admin\Selectable;
 
 
-use App\Ringcenter;
+use App\RingCenter;
 use Encore\Admin\Grid\Filter;
 use Encore\Admin\Grid\Selectable;
 
 class RingCenterAble extends  Selectable
 {
-    public $model = Ringcenter::class;
+    public $model = RingCenter::class;
 
     public function make()
     {

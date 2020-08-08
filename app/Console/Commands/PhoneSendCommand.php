@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\PhoneCorn;
 use App\PhoneTpl;
 use App\Reoisitory\RingcentralReoisitory;
-use App\Ringcenter;
+use App\RingCenter;
 use App\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
@@ -56,7 +56,7 @@ class PhoneSendCommand extends Command
                              if ($corn->ringcenter->isNotEmpty()){
                                  foreach ($corn->ringcenter as $item){
                                      /**
-                                      * @var  Ringcenter $item
+                                      * @var  RingCenter $item
                                       */
                                      $ringcentralReoisitory[]=new RingcentralReoisitory($item);
                                  }

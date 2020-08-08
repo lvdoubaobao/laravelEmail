@@ -22,23 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Admin/Selectable/RingCenterAble.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/EmailCorn.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/EmailCorn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/EmailTpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/EmailTpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PhoneCorn.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PhoneCorn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PhoneLog.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PhoneLog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PhoneTpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PhoneTpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UserSuppression.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UserSuppression.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/UserTag.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/UserTag.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -250,7 +234,7 @@
       <workItem from="1596673460091" duration="1205000" />
       <workItem from="1596685037564" duration="1916000" />
       <workItem from="1596696977656" duration="17465000" />
-      <workItem from="1596845643563" duration="7322000" />
+      <workItem from="1596845643563" duration="7687000" />
     </task>
     <servers />
   </component>

@@ -16,6 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
- $aa=  new \App\Reoisitory\RingcentralReoisitory(\App\Ringcenter::first());
+ $aa=  new \App\Reoisitory\RingcentralReoisitory(\App\RingCenter::first());
  dd($aa->sendSms(\App\User::first(),\App\PhoneTpl::first()));
 });
