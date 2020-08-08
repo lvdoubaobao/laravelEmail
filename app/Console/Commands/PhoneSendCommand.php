@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\PhoneCorn;
 use App\PhoneTpl;
 use App\Reoisitory\RingcentralReoisitory;
+use App\Ringcenter;
 use App\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Carbon;
@@ -31,9 +32,9 @@ class PhoneSendCommand extends Command
      *
      * @return void
      */
-    public function __construct(RingcentralReoisitory $ringcentralReoisitory)
+    public function __construct()
     {
-        $this->ringcentralReoisitory=$ringcentralReoisitory;
+
         parent::__construct();
     }
 
@@ -46,17 +47,29 @@ class PhoneSendCommand extends Command
     {
         PhoneCorn::where('is_send',0)->where('send_time','<',Carbon::now())->chunkById(10,function ($Corns){
                 foreach ($Corns as $corn){
-                             /**
-                              * @var  PhoneCorn $corn
-                              */
+                            $ringcentralReoisitory=[];
+                            /**
+                             * @var  PhoneCorn $corn
+                             */
+                          //  $corn
+
+                             if ($corn->ringcenter->isNotEmpty()){
+                                 foreach ($corn->ringcenter as $item){
+                                     /**
+                                      * @var  Ringcenter $item
+                                      */
+                                     $ringcentralReoisitory[]=new RingcentralReoisitory($item);
+                                 }
+                             }
+
                              $tpl=PhoneTpl::find($corn->phone_tpl_id);
-                              $user= User::whereTagId($corn->tag_id)->chunkById(10,function ($users)use($tpl){
+                              $user= User::whereTagId($corn->tag_id)->chunkById(10,function ($users)use($tpl,$ringcentralReoisitory){
                                   foreach ($users as $user){
                                       /**
                                        * @var User  $user
                                        */
-                                      Redis::throttle('phoneCorn')->allow(10)->every(60)->then(function ()use($user,$tpl){
-                                        $this->ringcentralReoisitory->sendSms($user,$tpl);
+                                      Redis::throttle('phoneCorn')->allow(10)->every(60)->then(function ()use($user,$tpl,$ringcentralReoisitory){
+                                        $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
                                       });
                                   }
                               });

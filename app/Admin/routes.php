@@ -23,5 +23,5 @@ Route::group([
     $router->resource('phone-tpls', PhoneTplController::class);
     $router->resource('phone-corns', PhoneCornController::class);
     $router->resource('phone-logs', PhoneLogController::class);
-
+    $router->resource('ringcentral', RingcentralController::class);
 });

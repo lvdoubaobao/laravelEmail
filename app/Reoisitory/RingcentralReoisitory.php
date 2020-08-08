@@ -5,36 +5,37 @@ namespace App\Reoisitory;
 
 use App\PhoneLog;
 use App\PhoneTpl;
+use App\Ringcenter;
 use App\User;
 use RingCentral\SDK\SDK;
 class RingcentralReoisitory
 {
     protected $rcsdk;
     protected $platform;
-    public function __construct()
+    protected $ringcenter;
+    public function __construct(Ringcenter $ringcenter)
     {
+          $this->ringcenter=$ringcenter;
           $this->rcsdk= new SDK(
               config('ringcentral.RINGCENTRAL_CLIENTID'),
               config('ringcentral.RINGCENTRAL_CLIENTSECRET'),
               config('ringcentral.RINGCENTRAL_SERVER')
           );
-
         $this->platform = $this->rcsdk->platform();
-        $this->platform->login( config('ringcentral.RINGCENTRAL_USERNAME'), config('ringcentral.RINGCENTRAL_EXTENSION'),config('ringcentral.RINGCENTRAL_PASSWORD'));
+        $this->platform->login( $this->ringcenter->name, $this->ringcenter->ext,$this->ringcenter->password);
     }
     public function sendSms(User $user,PhoneTpl $phoneTpl){
 
         $text=str_replace('{{name}}',$user->name,$phoneTpl->tpl);
 
         $phoneLog=new PhoneLog();
-     // $resp=  $this->platform->get('/account/~/extension/~/phone-number');
-    //  return $resp->jsonArray();
+
         try{
             $resp = $this->platform->post('/account/~/extension/~/sms',
                 array(
-                    'from' => array ('phoneNumber' =>  config('ringcentral.RINGCENTRAL_USERNAME')),
-               //     'to' => array(array('phoneNumber' => $user->phone)),
-                    'to' => array(array('phoneNumber' =>'+12095793478')),
+                    'from' => array ('phoneNumber' =>$this->ringcenter->name ),
+                    'to' => array(array('phoneNumber' => $user->phone)),
+                  //  'to' => array(array('phoneNumber' =>'+12095793478')),
                     'text' => $text
                 ));
                 $phoneLog->message=json_encode($resp->jsonArray());
@@ -51,5 +52,26 @@ class RingcentralReoisitory
 
 
 
+    }
+    public function  testPhone($phone ,$desc){
+        try{
+            $resp = $this->platform->post('/account/~/extension/~/sms',
+                array(
+                    'from' => array ('phoneNumber' =>$this->ringcenter->name),
+                    'to' => array(array('phoneNumber' => $phone)),
+                    'text' => $desc
+                ));
+
+                return [
+                    'code'=>1,
+                    'message'=>json_encode($resp->jsonArray())
+                ];
+
+        }catch (\Exception $exception){
+                return [
+                    'code'=>0,
+                    'message'=>$exception->getMessage()
+                    ];
+        }
     }
 }

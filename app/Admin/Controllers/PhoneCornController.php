@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Selectable\RingCenterAble;
 use App\PhoneCorn;
 use App\PhoneTpl;
 use App\UserTag;
@@ -79,11 +80,11 @@ class PhoneCornController extends AdminController
     {
         $form = new Form(new PhoneCorn());
         $form->text('name','名称')->required();
-        $form->select('phone_tpl_id', __('手机模板'))->options(PhoneTpl::all()->pluck('name','id'));
+        $form->select('phone_tpl_id', __('手机模板'))->options(PhoneTpl::all()->pluck('name','id'))->required();
         $form->datetime('send_time', __('发送时间'))->default(date('Y-m-d H:i:s'));
 
         $form->select('tag_id', __('标签'))->options(UserTag::all()->pluck('name','id'))->required();;
-
+        $form->belongsToMany('ringcenter',RingCenterAble::class,'选择发送账号')->required();
         return $form;
     }
 }
