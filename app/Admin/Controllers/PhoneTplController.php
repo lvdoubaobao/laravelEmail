@@ -70,7 +70,7 @@ class PhoneTplController extends AdminController
         $form = new Form(new PhoneTpl());
         $form->text('name', __('名称'))->required();
         $form->textarea('tpl', __('模板消息'))->help('用户变量用:{{name}}表示')->required();
-        $form->multipleImage('image','多图上传');
+        $form->multipleImage('image','多图上传')->removable()->sortable();
 
         return $form;
     }
