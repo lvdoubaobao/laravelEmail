@@ -23,12 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Admin/Actions/Ringcentral/TplJiance.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Actions/Ringcentral/Jiance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Actions/Ringcentral/Jiance.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneTplController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneTplController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PhoneTpl.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/PhoneTpl.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +240,7 @@
       <workItem from="1596696977656" duration="17465000" />
       <workItem from="1596845643563" duration="10673000" />
       <workItem from="1597019115213" duration="363000" />
-      <workItem from="1597040788472" duration="4175000" />
+      <workItem from="1597040788472" duration="4870000" />
     </task>
     <servers />
   </component>

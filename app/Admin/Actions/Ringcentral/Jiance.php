@@ -20,7 +20,7 @@ class Jiance extends RowAction
 
         // 获取表单中的`reason`值
         $desc=   $request->get('desc');
-        $files=$request->allFiles('image');
+        $files=$request->file('image');
 
         $name=[];
         foreach ($files as $file){
