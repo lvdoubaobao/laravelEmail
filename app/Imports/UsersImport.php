@@ -59,9 +59,9 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     {
 
      return [
-   /*       'email'=>['required',
+             'email'=>['required',
                   Rule::unique('users')->where('tag_id',$this->tag)
-              ]*/
+              ]
         ];
 
     }
