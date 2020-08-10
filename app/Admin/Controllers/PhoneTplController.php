@@ -2,6 +2,8 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Actions\Ringcentral\Jiance;
+use App\Admin\Actions\Ringcentral\TplJiance;
 use App\PhoneTpl;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
@@ -30,9 +32,12 @@ class PhoneTplController extends AdminController
 
         $grid->column('name', __('名称'));
         $grid->column('tpl', __('模板消息'));
+
         $grid->column('created_at', __('创建时间'));
 
-
+        $grid->actions(function ($actions) {
+            $actions->add(new TplJiance());
+        });
         return $grid;
     }
 
@@ -65,7 +70,7 @@ class PhoneTplController extends AdminController
         $form = new Form(new PhoneTpl());
         $form->text('name', __('名称'))->required();
         $form->textarea('tpl', __('模板消息'))->help('用户变量用:{{name}}表示')->required();
-
+        $form->multipleImage('image','多图上传');
 
         return $form;
     }
