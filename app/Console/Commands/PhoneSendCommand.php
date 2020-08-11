@@ -69,9 +69,9 @@ class PhoneSendCommand extends Command
                                       /**
                                        * @var User  $user
                                        */
-                                      Redis::throttle('phoneCorn')->allow(10)->every(60)->then(function ()use($user,$tpl,$ringcentralReoisitory){
-                                        $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
-                                      });
+                                        $this->info($user->id);
+                                     //   $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
+                                        sleep(6);
                                   }
                               });
                            $corn->is_send=1;

@@ -24,11 +24,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('email:corn')->everyMinute()->withoutOverlapping();
+        $schedule->command('email:corn')->everyMinute()->withoutOverlapping()->runInBackground();
         $schedule->command('user:send 1')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 2')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 0')->everyTwoHours()->withoutOverlapping();
-        $schedule->command('phone:corn')->everyMinute()->withoutOverlapping();
+        $schedule->command('phone:corn')->everyMinute()->withoutOverlapping()->runInBackground();
     }
 
     /**
