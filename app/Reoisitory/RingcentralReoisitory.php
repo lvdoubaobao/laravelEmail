@@ -139,13 +139,12 @@ class RingcentralReoisitory
             }
             $request = $request->request('/account/~/extension/~/sms');
             $resp = $this->platform->sendRequest($request);
-            /*       $resp = $this->platform->post('/account/~/extension/~/sms',
+            /* $resp = $this->platform->post('/account/~/extension/~/sms',
                        array(
                            'from' => array ('phoneNumber' =>$this->ringcenter->name),
                            'to' => array(array('phoneNumber' => $phone)),
                            'text' => $desc
                        ));*/
-
             return [
                 'code' => 1,
                 'message' => json_encode($resp->jsonArray())

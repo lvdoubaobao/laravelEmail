@@ -54,18 +54,16 @@ class PhoneSendCommand extends Command
                              * @var  PhoneCorn $corn
                              */
                           //  $corn
-
-                             if ($corn->ringcenter->isNotEmpty()){
-                                 foreach ($corn->ringcenter as $item){
-                                     /**
-                                      * @var  RingCenter $item
-                                      */
-                                     $ringcentralReoisitory[]=new RingcentralReoisitory($item);
-                                 }
-                             }
-
                              $tpl=PhoneTpl::find($corn->phone_tpl_id);
-                              $user= User::whereTagId($corn->tag_id)->chunkById(10,function ($users)use($tpl,$ringcentralReoisitory){
+                              $user= User::whereTagId($corn->tag_id)->chunkById(100,function ($users)use($tpl,$corn){
+                                  if ($corn->ringcenter->isNotEmpty()){
+                                      foreach ($corn->ringcenter as $item){
+                                          /**
+                                           * @var  RingCenter $item
+                                           */
+                                          $ringcentralReoisitory[]=new RingcentralReoisitory($item);
+                                      }
+                                  }
                                   foreach ($users as $user){
                                       /**
                                        * @var User  $user
