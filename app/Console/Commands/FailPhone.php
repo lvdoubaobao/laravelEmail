@@ -46,6 +46,7 @@ class FailPhone extends Command
         PhoneLog::whereStatus(0)->chunkById(100,function ($items){
                 foreach ($items as $item){
                     $ringcentralReoisitory=new RingcentralReoisitory(RingCenter::findOrFail(1));
+                    $this->info($item->id);
                     /**
                      * @var PhoneLog $item
                      */
