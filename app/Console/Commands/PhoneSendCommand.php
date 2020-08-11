@@ -70,7 +70,7 @@ class PhoneSendCommand extends Command
                                        * @var User  $user
                                        */
                                         $this->info($user->id);
-                                     //   $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
+                                        $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
                                         sleep(6);
                                   }
                               });
