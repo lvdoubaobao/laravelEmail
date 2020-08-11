@@ -24,4 +24,7 @@ Route::group([
     $router->resource('phone-corns', PhoneCornController::class);
     $router->resource('phone-logs', PhoneLogController::class);
     $router->resource('ringcentral', RingcentralController::class);
+
+    $router->resource('phone-blacklists', blackListController::class);
+
 });
