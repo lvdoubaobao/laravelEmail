@@ -3,6 +3,7 @@
 
 namespace App\Reoisitory;
 
+use App\PhoneHuihua;
 use App\PhoneLog;
 use App\PhoneTpl;
 use App\RingCenter;
@@ -87,7 +88,41 @@ class RingcentralReoisitory
 
 
     }
+    public function blackList(){
+        $page=1;
+        $totalPage=100;
+        while ($page<=$totalPage){
+            $response = $this->platform->get('/account/~/extension/~/message-store',
+                array(
+                    'messageType' => array('SMS'),
+                    'page'=>$page,
+                ));
 
+             $data=json_decode( $response->text(),true);
+             $page++;
+             $totalPage=$data['paging']['totalPages'];
+             foreach ($data['records'] as $item){
+                $phoneHuihua= PhoneHuihua::whereConversationId($item['conversationId'])->first();
+                if (!$phoneHuihua){
+                    $phoneHuihua=new PhoneHuihua();
+                    $phoneHuihua->to=$item['to'];
+                    $phoneHuihua->from=$item['from'];
+                    $phoneHuihua->type=$item['type'];
+                    $phoneHuihua->creationTime=$item['creationTime'];
+                    $phoneHuihua->readStatus=$item['readStatus'];
+                    $phoneHuihua->priority=$item['priority'];
+                    $phoneHuihua->attachments=$item['attachments'];
+                    $phoneHuihua->subject=$item['subject'];
+                    $phoneHuihua->conversation_id=$item['conversationId'];
+                    $phoneHuihua->save();
+                }
+             }
+
+        }
+
+
+         return $response->text();
+    }
     public function testPhone($phone, $desc, $files = [])
     {
         try {

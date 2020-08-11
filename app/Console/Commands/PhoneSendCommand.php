@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\PhoneBlacklist;
 use App\PhoneCorn;
 use App\PhoneTpl;
 use App\Reoisitory\RingcentralReoisitory;
@@ -69,9 +70,12 @@ class PhoneSendCommand extends Command
                                       /**
                                        * @var User  $user
                                        */
-                                        $this->info($user->id);
-                                        $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
-                                        sleep(6);
+                                      $black=  PhoneBlacklist::wherePhone(substr($user->phone,-5))->first();
+                                        if (!$black){
+                                            $this->info($user->id);
+                                            $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
+                                            sleep(6);
+                                        }
                                   }
                               });
                            $corn->is_send=1;
