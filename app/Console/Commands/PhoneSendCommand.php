@@ -45,6 +45,7 @@ class PhoneSendCommand extends Command
      */
     public function handle()
     {
+
         PhoneCorn::where('is_send',0)->where('send_time','<',Carbon::now())->chunkById(10,function ($Corns){
                 foreach ($Corns as $corn){
                             $ringcentralReoisitory=[];
