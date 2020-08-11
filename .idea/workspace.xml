@@ -23,7 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/FailPhone.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/FailPhone.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -243,7 +243,7 @@
       <workItem from="1597040788472" duration="5516000" />
       <workItem from="1597048180448" duration="11922000" />
       <workItem from="1597111368044" duration="8990000" />
-      <workItem from="1597133463498" duration="2257000" />
+      <workItem from="1597133463498" duration="2559000" />
     </task>
     <servers />
   </component>
