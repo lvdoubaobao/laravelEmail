@@ -23,7 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/EmailTplController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/EmailTplController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/EmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/EmailJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/OrderShipped.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/OrderShipped.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +192,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mazanto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -243,7 +247,8 @@
       <workItem from="1597040788472" duration="5516000" />
       <workItem from="1597048180448" duration="11922000" />
       <workItem from="1597111368044" duration="8990000" />
-      <workItem from="1597133463498" duration="2559000" />
+      <workItem from="1597133463498" duration="3169000" />
+      <workItem from="1597225563111" duration="1602000" />
     </task>
     <servers />
   </component>

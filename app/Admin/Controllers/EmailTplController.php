@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\EmailCorn;
 use App\EmailTpl;
 use App\Mail\OrderShipped;
+use App\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -49,7 +50,7 @@ class EmailTplController extends AdminController
 
 
 
-        return new OrderShipped($EmailTpl,EmailCorn::first());
+        return new OrderShipped($EmailTpl,EmailCorn::first(),User::first());
     }
 
     /**

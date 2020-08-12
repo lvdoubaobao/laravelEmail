@@ -58,7 +58,7 @@ class EmailJob implements ShouldQueue
     {
                 Redis::throttle(config('app.name'))->allow(1)->every(3)->then(function () {
                     // 任务逻辑...
-                    \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn));
+                    \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn,$this->user));
                     Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
                 }, function () {
                     // 无法获得锁...

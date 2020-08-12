@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use App\EmailCorn;
 use App\EmailTpl;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -15,18 +16,18 @@ class OrderShipped extends Mailable
 
     protected $emailTpl;
     protected $emailCorn;
-
+    protected  $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(EmailTpl $emailTpl,EmailCorn $emailCorn)
+    public function __construct(EmailTpl $emailTpl,EmailCorn $emailCorn,User  $user)
     {
 
         $this->emailTpl=$emailTpl;
         $this->emailCorn=$emailCorn;
-
+        $this->user=$user;
         /*if ($address!=''){
             $this->from($address,$address_name);
         }*/
@@ -43,9 +44,9 @@ class OrderShipped extends Mailable
 
        if ($this->emailCorn->address){
             return    $this->from($this->emailCorn->address,$this->emailCorn->address_name)
-               ->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc]);
+               ->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc,'user_address'=>$this->user->email,'user_name'=>$this->user->name]);
        }else{
-           return  $this->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc]);
+           return  $this->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc,'user_address'=>$this->user->email,'user_name'=>$this->user->name]);
        }
 
     }
@@ -54,7 +55,6 @@ class OrderShipped extends Mailable
             '*|EMAIL|*',
             '*|LIST:ADDRESSLINE|*',
             '*|REWARDS|*',
-
         ];
     }
 }
