@@ -34,7 +34,7 @@ class PhoneCornController extends AdminController
             return PhoneTpl::find($value)->name ?? '';
         });
         $grid->column('tag_id', __('标签'))->display(function($value){
-            return UserTag::find($value)->name;
+            return UserTag::find($value)->name ?? '';
         });
         $grid->column('send_time', __('发送时间'));
         $grid->column('is_send', __('是否发送'))->display(function ($value){

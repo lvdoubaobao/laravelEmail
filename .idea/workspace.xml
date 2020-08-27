@@ -24,10 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/EmailTplController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/EmailTplController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Jobs/EmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/EmailJob.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Mail/OrderShipped.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/OrderShipped.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/blackListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/blackListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +247,15 @@
       <workItem from="1597048180448" duration="11922000" />
       <workItem from="1597111368044" duration="8990000" />
       <workItem from="1597133463498" duration="3169000" />
-      <workItem from="1597225563111" duration="1602000" />
+      <workItem from="1597225563111" duration="2676000" />
+      <workItem from="1597289399394" duration="1240000" />
+      <workItem from="1597367364199" duration="2818000" />
+      <workItem from="1597450139295" duration="565000" />
+      <workItem from="1597893498902" duration="3258000" />
+      <workItem from="1597978423742" duration="593000" />
+      <workItem from="1598066383977" duration="1501000" />
+      <workItem from="1598232454547" duration="1190000" />
+      <workItem from="1598488643717" duration="43000" />
     </task>
     <servers />
   </component>
@@ -290,10 +297,10 @@
     </state>
     <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597138211721" />
     <state x="2130" y="191" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595579904766" />
-    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1597126694434">
+    <state x="580" y="185" key="FileChooserDialogImpl" timestamp="1598245335536">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597126694434" />
+    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1598245335536" />
     <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595660020569" />
     <state x="512" y="150" key="NewPhpClassDialog" timestamp="1596851590668">
       <screen x="0" y="0" width="1600" height="860" />
@@ -313,10 +320,10 @@
     </state>
     <state x="502" y="133" width="596" height="594" key="find.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597104349894" />
     <state x="2102" y="139" width="596" height="594" key="find.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595380362816" />
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1597115160836">
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1598488664820">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597115160836" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1598488664820" />
     <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595657673273" />
   </component>
 </project>

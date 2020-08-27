@@ -85,8 +85,6 @@ class RingcentralReoisitory
                 'message' => $exception->getMessage()
             ];
         }
-
-
     }
     public function blackList(){
         $page=1;
