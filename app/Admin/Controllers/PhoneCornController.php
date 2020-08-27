@@ -44,9 +44,6 @@ class PhoneCornController extends AdminController
             1=>'success'
         ]);
         $grid->column('created_at', __('创建时间'));
-
-
-
         return $grid;
     }
 
