@@ -4,6 +4,7 @@ namespace App\Jobs;
 
 use App\EmailCorn;
 use App\EmailTpl;
+use App\Reoisitory\MailGunRespository;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -58,8 +59,21 @@ class EmailJob implements ShouldQueue
     {
                 Redis::throttle(config('app.name'))->allow(1)->every(3)->then(function () {
                     // 任务逻辑...
-                    \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn,$this->user));
-                    Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
+                    /**
+                     * @var MailGunRespository $mailGun
+                     */
+               $mailGun=     app('mailgun');
+               if ($this->emailCorn->address){
+                   $mailGun->from($this->emailCorn->address);
+               }
+                if ($this->emailCorn->address_name){
+                    $mailGun->formName($this->emailCorn->address);
+                }
+                $mailGun->to($this->user->email);
+                $mailGun->send($this->emailCorn->name,$this->emailTpl->desc);
+
+                 //   \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn,$this->user));
+              //      Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
                 }, function () {
                     // 无法获得锁...
                     return $this->release(3);

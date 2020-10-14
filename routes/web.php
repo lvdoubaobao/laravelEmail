@@ -1,5 +1,6 @@
 <?php
 
+use App\Jobs\EmailJob;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
- $aa=  new \App\Reoisitory\RingcentralReoisitory(\App\RingCenter::find(2));
- return $aa->blackList();
+
+ //$mailgun= new \App\Reoisitory\MailGunRespository();
+  //  dispatch(new EmailJob(\App\User::first(), \App\EmailTpl::first(),\App\EmailCorn::first()));
+ //dd($mailgun->send('haha','112'));
 });

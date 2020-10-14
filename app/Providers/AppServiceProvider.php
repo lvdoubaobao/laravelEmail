@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Reoisitory\MailGunRespository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind('mailgun',function ($app){
+            return new MailGunRespository();
+        });
     }
 }

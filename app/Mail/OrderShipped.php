@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Message;
 use Illuminate\Mail\Transport\MailgunTransport;
 use Illuminate\Queue\SerializesModels;
 
@@ -45,7 +46,9 @@ class OrderShipped extends Mailable
        if ($this->emailCorn->address){
             return    $this->from($this->emailCorn->address,$this->emailCorn->address_name)
                ->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc,'user_address'=>$this->user->email,'user_name'=>$this->user->name]);
+
        }else{
+
            return  $this->subject($this->emailCorn->name)->view('email',['desc'=>$this->emailTpl->desc,'user_address'=>$this->user->email,'user_name'=>$this->user->name]);
        }
 
