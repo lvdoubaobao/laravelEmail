@@ -28,7 +28,7 @@ class ImportData extends Action
     }
     public function form()
     {
-        $this->select('tag','标签')->options(UserTag::all()->pluck('name','id'))->required();
+        $this->select('tag','标签')->options(UserTag::where('admin_id',\Encore\Admin\Facades\Admin::user()->id)->get()->pluck('name','id'))->required();
         $this->file('file', '上传excel文件')->required();
 
     }
