@@ -23,13 +23,15 @@ class ImportData extends Action
         $name= $file->storeAs('excel',$file->getClientOriginalName());
 
         $tag=$request->input('tag');
-        dispatch(new ImportJob($tag,$name,\Encore\Admin\Facades\Admin::user()->id) );
+        $admin_id=$request->input('admin_id');
+        dispatch(new ImportJob($tag,$name,$admin_id) );
         return $this->response()->success('已成功上传')->refresh();
     }
     public function form()
     {
         $this->select('tag','标签')->options(UserTag::where('admin_id',\Encore\Admin\Facades\Admin::user()->id)->get()->pluck('name','id'))->required();
         $this->file('file', '上传excel文件')->required();
+        $this->hidden('admin_id',\Encore\Admin\Facades\Admin::user()->id);
 
     }
     public function html()

@@ -29,7 +29,6 @@ class PhoneTplController extends AdminController
         $grid = new Grid(new PhoneTpl());
         $grid->model()->where('admin_id',\Admin::user()->id);
         $grid->column('id', __('Id'));
-
         $grid->column('name', __('名称'));
         $grid->column('tpl', __('模板消息'));
 
