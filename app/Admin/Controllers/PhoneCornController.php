@@ -78,7 +78,7 @@ class PhoneCornController extends AdminController
     {
         $form = new Form(new PhoneCorn());
         $form->text('name','名称')->required();
-        $form->select('phone_tpl_id', __('手机模板'))->options(PhoneTpl::all()->pluck('name','id'))->required();
+        $form->select('phone_tpl_id', __('手机模板'))->options(PhoneTpl::where('admin_id',Admin::user()->id)->get()->pluck('name','id'))->required();
         $form->datetime('send_time', __('发送时间'))->default(date('Y-m-d H:i:s'));
         $form->hidden('admin_id')->default(\Admin::user()->id);
         $form->select('tag_id', __('标签'))->options(UserTag::where('admin_id',Admin::user()->id)->get()->pluck('name','id'))->required();;
