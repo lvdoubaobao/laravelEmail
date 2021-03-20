@@ -31,7 +31,7 @@ class ImportData extends Action
     {
         $this->select('tag','标签')->options(UserTag::where('admin_id',\Encore\Admin\Facades\Admin::user()->id)->get()->pluck('name','id'))->required();
         $this->file('file', '上传excel文件')->required();
-        $this->hidden('admin_id',\Encore\Admin\Facades\Admin::user()->id);
+        $this->hidden('admin_id')->default(\Encore\Admin\Facades\Admin::user()->id);
 
     }
     public function html()
