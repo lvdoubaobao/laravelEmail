@@ -103,7 +103,7 @@ class UserCtroller extends AdminController
         $form->text('province', __('province'));
         $form->text('since', __('since'));
         $form->select('tag_id', __('标签'))->options(
-            UserTag::all()->pluck('name','id')
+            UserTag::where('admin_id',Admin::user()->id)->get()->pluck('name','id')
         );
 
         return $form;

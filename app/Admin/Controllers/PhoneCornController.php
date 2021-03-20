@@ -7,6 +7,7 @@ use App\PhoneCorn;
 use App\PhoneTpl;
 use App\UserTag;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -80,7 +81,7 @@ class PhoneCornController extends AdminController
         $form->select('phone_tpl_id', __('手机模板'))->options(PhoneTpl::all()->pluck('name','id'))->required();
         $form->datetime('send_time', __('发送时间'))->default(date('Y-m-d H:i:s'));
         $form->hidden('admin_id')->default(\Admin::user()->id);
-        $form->select('tag_id', __('标签'))->options(UserTag::all()->pluck('name','id'))->required();;
+        $form->select('tag_id', __('标签'))->options(UserTag::where('admin_id',Admin::user()->id)->get()->pluck('name','id'))->required();;
         $form->belongsToMany('ringcenter',RingCenterAble::class,'选择发送账号')->required();
         return $form;
     }
