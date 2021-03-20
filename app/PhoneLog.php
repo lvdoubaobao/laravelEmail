@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereAdminId($value)
  */
 class PhoneLog extends Model
 {

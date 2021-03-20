@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\UserTag whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\UserTag whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\UserTag whereAdminId($value)
  */
 class UserTag extends Model
 {

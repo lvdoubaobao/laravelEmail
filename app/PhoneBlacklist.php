@@ -19,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneBlacklist wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneBlacklist whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneBlacklist whereAdminId($value)
  */
 class PhoneBlacklist extends Model
 {

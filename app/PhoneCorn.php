@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\RingCenter[] $ringcenter
  * @property-read int|null $ringcenter_count
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereAdminId($value)
  */
 class PhoneCorn extends Model
 {

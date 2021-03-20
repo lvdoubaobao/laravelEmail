@@ -68,6 +68,7 @@ class RingcentralReoisitory
                       'text' => $text
                   ));*/
             $phoneLog->message = json_encode($resp->jsonArray());
+            $phoneLog->admin_id=$user->admin_id;
             $phoneLog->phone = $user->phone;
             $phoneLog->status = 1;
             $phoneLog->save();

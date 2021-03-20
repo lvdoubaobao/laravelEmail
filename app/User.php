@@ -43,6 +43,8 @@ use Illuminate\Notifications\Notifiable;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereTagId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereAdminId($value)
  */
 class User extends Authenticatable
 {

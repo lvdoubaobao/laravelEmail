@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property array|null $image
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereImage($value)
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneTpl whereAdminId($value)
  */
 class PhoneTpl extends Model
 {
