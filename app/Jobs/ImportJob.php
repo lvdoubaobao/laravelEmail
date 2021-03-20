@@ -39,7 +39,9 @@ class ImportJob implements ShouldQueue
      */
     public function handle()
     {
+
         try {
+
             Excel::import(new UsersImport($this->tag,$this->admin_id),storage_path('app/'.$this->file));
         }catch (ValidationException $exception){
             $failures = $exception->failures();
