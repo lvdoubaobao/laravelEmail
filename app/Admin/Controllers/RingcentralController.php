@@ -27,7 +27,7 @@ class RingcentralController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new RingCenter());
-
+        $grid->model()->where('admin_id',\Admin::user()->id);
         $grid->column('id', __('Id'));
         $grid->column('real_name', __('名称'))->editable();
         $grid->column('name', __('账号'))->editable();
@@ -78,6 +78,7 @@ class RingcentralController extends AdminController
         $form->text('real_name', __('名称'))->required();
         $form->text('name', __('账号'))->required();
 
+        $form->hidden('admin_id')->default(\Admin::user()->id);
         $form->password('password', __('密码'))->required();
         $form->text('ext','ext')->required();
 

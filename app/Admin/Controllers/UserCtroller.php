@@ -29,6 +29,7 @@ class UserCtroller extends AdminController
     protected function grid()
     {
         $grid = new Grid(new User());
+        $grid->model()->where('admin_id',\Admin::user()->id);
         $grid->model()->orderBy('id','desc');
         $grid->column('id', __('Id'));
         $grid->column('name', __('姓名'));
@@ -49,7 +50,7 @@ class UserCtroller extends AdminController
             $filter->like('country','country');
             $filter->like('province','province');
             $filter->like('since','since');
-            $filter->in('tag_id','标签')->multipleSelect(UserTag::all()->pluck('name','id'));
+            $filter->in('tag_id','标签')->multipleSelect(UserTag::where('admin_id',Admin::user()->id)->get()->pluck('name','id'));
 
         });
         $grid->column('created_at', __('创建时间'));
@@ -93,6 +94,8 @@ class UserCtroller extends AdminController
     protected function form()
     {
         $form = new Form(new User());
+
+        $form->hidden('admin_id')->default(\Admin::user()->id);
         $form->text('name', __('名称'));
         $form->text('email', __('邮箱'));
         $form->text('phone', __('手机号'));

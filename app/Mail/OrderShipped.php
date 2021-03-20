@@ -42,6 +42,7 @@ class OrderShipped extends Mailable
      */
     public function build()
     {
+   //     dd($this->emailCorn->address);
 
        if ($this->emailCorn->address){
             return    $this->from($this->emailCorn->address,$this->emailCorn->address_name)

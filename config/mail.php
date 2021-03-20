@@ -44,7 +44,9 @@ return [
             'timeout' => null,
             'auth_mode' => null,
         ],
-
+        'sparkpost' => [
+            'transport' => 'sparkpost'
+        ],
         'ses' => [
             'transport' => 'ses',
         ],
@@ -84,7 +86,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' =>'serve@mail.ruiyuhair.com',
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 

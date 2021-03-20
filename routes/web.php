@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
  //$mailgun= new \App\Reoisitory\MailGunRespository();
-  //  dispatch(new EmailJob(\App\User::first(), \App\EmailTpl::first(),\App\EmailCorn::first()));
- //dd($mailgun->send('haha','112'));
+    $aa=\Illuminate\Support\Facades\Mail::to('736400469@qq.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::first(),\App\EmailCorn::first(),\App\User::first()));
+ dd($aa);
+    //dd($mailgun->send('haha','112'));
 });

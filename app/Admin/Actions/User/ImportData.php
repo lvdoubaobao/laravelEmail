@@ -23,9 +23,7 @@ class ImportData extends Action
         $name= $file->storeAs('excel',$file->getClientOriginalName());
 
         $tag=$request->input('tag');
-        dispatch(new ImportJob($tag,$name) );
-    //   Excel::import(new UsersImport($tag),storage_path('app/'.$name));
-
+        dispatch(new ImportJob($tag,$name,\Encore\Admin\Facades\Admin::user()->id) );
         return $this->response()->success('已成功上传')->refresh();
     }
     public function form()

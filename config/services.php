@@ -29,5 +29,26 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'sparkpost' => [
+        'secret' => env('SPARKPOST_SECRET'),
+
+        // optional guzzle specific configuration
+        'guzzle' => [
+            'verify' => true,
+            'decode_content' => true,
+        ],
+        'options' => [
+            // configure endpoint, if not default
+            'endpoint' => env('SPARKPOST_ENDPOINT'),
+
+            // optional Sparkpost API options go here
+            'return_path' => 'mail@bounces.domain.com',
+            'options' => [
+                'open_tracking' => false,
+                'click_tracking' => false,
+                'transactional' => true,
+            ],
+        ],
+    ],
 
 ];

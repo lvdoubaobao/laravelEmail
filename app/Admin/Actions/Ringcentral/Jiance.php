@@ -26,7 +26,6 @@ class Jiance extends RowAction
         foreach ($files as $file){
             $name[]= $file->storeAs('image',$file->getClientOriginalName());
         }
-
         $repos= new RingcentralReoisitory($model);
         $res=$repos->testPhone($phone,$desc,$name);
         if ($res['code']==0){
@@ -38,7 +37,6 @@ class Jiance extends RowAction
             $model->save();
             return $this->response()->success($res['message'])->refresh();
         }
-
     }
 
     public function form()

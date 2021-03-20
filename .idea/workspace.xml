@@ -23,16 +23,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Reoisitory/MailGunRespository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/laravelEmail.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravelEmail.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Actions/Ringcentral/Jiance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Actions/Ringcentral/Jiance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Actions/User/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Actions/User/ImportData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneLogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneLogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneTplController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneTplController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/RingcentralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/RingcentralController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserTagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserTagController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/blackListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/blackListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/PhoneSendCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/UsersImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/UsersImport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Jobs/EmailJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/EmailJob.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Jobs/ImportJob.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Jobs/ImportJob.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mail/OrderShipped.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/OrderShipped.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -187,6 +198,10 @@
       <path value="$PROJECT_DIR$/vendor/php-http/message" />
       <path value="$PROJECT_DIR$/vendor/mailgun/mailgun-php" />
       <path value="$PROJECT_DIR$/vendor/clue/stream-filter" />
+      <path value="$PROJECT_DIR$/vendor/vemcogroup/laravel-sparkpost-driver" />
+      <path value="$PROJECT_DIR$/vendor/stancl/jobpipeline" />
+      <path value="$PROJECT_DIR$/vendor/stancl/tenancy" />
+      <path value="$PROJECT_DIR$/vendor/stancl/virtualcolumn" />
     </include_path>
   </component>
   <component name="ProjectId" id="1enxBozQ4To8nTFNWJmgmm4Bhsg" />
@@ -199,7 +214,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../www" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -207,7 +222,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -269,6 +284,13 @@
       <workItem from="1602573392906" duration="1052000" />
       <workItem from="1602575135562" duration="2076000" />
       <workItem from="1602636898984" duration="8800000" />
+      <workItem from="1605073289050" duration="1569000" />
+      <workItem from="1605172541341" duration="863000" />
+      <workItem from="1605234335704" duration="2107000" />
+      <workItem from="1605245878879" duration="5330000" />
+      <workItem from="1610433872780" duration="217000" />
+      <workItem from="1614137025972" duration="1610000" />
+      <workItem from="1616136192763" duration="5905000" />
     </task>
     <servers />
   </component>
@@ -288,59 +310,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="392" y="88" key="#Deployment" timestamp="1597108496917">
-      <screen x="0" y="0" width="1600" height="860" />
+    <state x="385" y="148" width="670" height="676" key="search.everywhere.popup" timestamp="1614138359599">
+      <screen x="0" y="23" width="1440" height="801" />
     </state>
-    <state x="392" y="88" key="#Deployment/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597108496917" />
-    <state x="1992" y="94" key="#Deployment/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595659643357" />
-    <state x="376" y="75" key="#SSH_Configurations" timestamp="1597108495545">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="376" y="75" key="#SSH_Configurations/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597108495545" />
-    <state x="2126" y="236" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1595292229096">
-      <screen x="1600" y="6" width="1600" height="860" />
-    </state>
-    <state x="2126" y="236" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595292229096" />
-    <state x="385" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1596853690900">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="385" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596853690900" />
-    <state x="2130" y="193" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1602645216027">
-      <screen x="1600" y="8" width="1600" height="860" />
-    </state>
-    <state x="530" y="185" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597138211721" />
-    <state x="2130" y="191" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595579904766" />
-    <state x="2130" y="193" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1600.860/1600.8.1600.860@1600.8.1600.860" timestamp="1602645216027" />
-    <state x="2180" y="193" key="FileChooserDialogImpl" timestamp="1602644301931">
-      <screen x="1600" y="8" width="1600" height="860" />
-    </state>
-    <state x="580" y="185" key="FileChooserDialogImpl/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1598245335536" />
-    <state x="2180" y="191" key="FileChooserDialogImpl/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595660020569" />
-    <state x="2180" y="193" key="FileChooserDialogImpl/0.0.1600.860/1600.8.1600.860@1600.8.1600.860" timestamp="1602644301931" />
-    <state x="2112" y="158" key="NewPhpClassDialog" timestamp="1602639428506">
-      <screen x="1600" y="8" width="1600" height="860" />
-    </state>
-    <state x="512" y="150" key="NewPhpClassDialog/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1596851590668" />
-    <state x="2112" y="156" key="NewPhpClassDialog/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595237647447" />
-    <state x="2112" y="158" key="NewPhpClassDialog/0.0.1600.860/1600.8.1600.860@1600.8.1600.860" timestamp="1602639428506" />
-    <state x="2216" y="359" key="NewPhpFileDialog" timestamp="1595237874801">
-      <screen x="1600" y="6" width="1600" height="860" />
-    </state>
-    <state x="2216" y="359" key="NewPhpFileDialog/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595237874801" />
-    <state x="1901" y="80" key="SettingsEditor" timestamp="1595659447265">
-      <screen x="1600" y="6" width="1600" height="860" />
-    </state>
-    <state x="1901" y="80" key="SettingsEditor/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595659447265" />
-    <state x="502" y="133" width="596" height="594" key="find.popup" timestamp="1597104349894">
-      <screen x="0" y="0" width="1600" height="860" />
-    </state>
-    <state x="502" y="133" width="596" height="594" key="find.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1597104349894" />
-    <state x="2102" y="139" width="596" height="594" key="find.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595380362816" />
-    <state x="2063" y="188" width="672" height="678" key="search.everywhere.popup" timestamp="1602645662775">
-      <screen x="1600" y="8" width="1600" height="860" />
-    </state>
-    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/-1600.0.1600.860@0.0.1600.860" timestamp="1598488664820" />
-    <state x="2063" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.6.1600.860@1600.6.1600.860" timestamp="1595657673273" />
-    <state x="2063" y="188" width="672" height="678" key="search.everywhere.popup/0.0.1600.860/1600.8.1600.860@1600.8.1600.860" timestamp="1602645662775" />
+    <state x="385" y="148" width="670" height="676" key="search.everywhere.popup/0.23.1440.801@0.23.1440.801" timestamp="1614138359599" />
   </component>
 </project>

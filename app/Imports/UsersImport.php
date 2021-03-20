@@ -24,9 +24,10 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     use Importable,SkipsFailures,SkipsErrors;
 
     public  $tag;
-    public function __construct($tag)
+    public $admin_id;
+    public function __construct($tag,$admin_id)
     {
-
+        $this->admin_id=$admin_id;
         $this->tag=$tag;
     }
     public function headingRow(): int
@@ -51,7 +52,8 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
             'address'=>$row['address'],
             'city'=>$row['city'],
             'password'=>bcrypt('123456'),
-            'tag_id'=>$this->tag
+            'tag_id'=>$this->tag,
+            'admin_id'=>$this->admin_id
         ]);
 
     }
@@ -59,9 +61,9 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     {
 
      return [
-             'email'=>['required',
+            /* 'email'=>['required',
                   Rule::unique('users')->where('tag_id',$this->tag)
-              ]
+              ]*/
         ];
 
     }

@@ -27,7 +27,7 @@ class PhoneTplController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PhoneTpl());
-
+        $grid->model()->where('admin_id',\Admin::user()->id);
         $grid->column('id', __('Id'));
 
         $grid->column('name', __('名称'));
@@ -71,7 +71,7 @@ class PhoneTplController extends AdminController
         $form->text('name', __('名称'))->required();
         $form->textarea('tpl', __('模板消息'))->help('用户变量用:{{name}}表示')->required();
         $form->multipleImage('image','多图上传')->removable()->sortable();
-
+        $form->hidden('admin_id')->default(\Admin::user()->id);
         return $form;
     }
 }

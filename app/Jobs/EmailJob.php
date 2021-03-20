@@ -62,7 +62,7 @@ class EmailJob implements ShouldQueue
                     /**
                      * @var MailGunRespository $mailGun
                      */
-               $mailGun=     app('mailgun');
+      /*         $mailGun=     app('mailgun');
                if ($this->emailCorn->address){
                    $mailGun->from($this->emailCorn->address);
                }
@@ -71,16 +71,15 @@ class EmailJob implements ShouldQueue
                 }
                 $mailGun->to($this->user->email);
                 $mailGun->send($this->emailCorn->name,$this->emailTpl->desc);
-
-                 //   \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn,$this->user));
-              //      Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
+*/
+                   \Illuminate\Support\Facades\Mail::to($this->user)->send(new \App\Mail\OrderShipped($this->emailTpl,$this->emailCorn,$this->user));
+                    Log::channel('email_success')->info($this->user->email.':'.$this->emailTpl->name.':发送成功');
                 }, function () {
                     // 无法获得锁...
                     return $this->release(3);
                 });
     }
     public function  failed(\Exception $exception){
-
         Log::channel('email_error')->error($this->user->email.':'.$this->emailTpl->name,[$exception->getMessage()]);
 
     }

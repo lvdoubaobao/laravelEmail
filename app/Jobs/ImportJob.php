@@ -18,15 +18,18 @@ class ImportJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     public  $tag;
     public  $file;
+    public $admin_id;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($tag,$file)
+    public function __construct($tag,$file,$admin_id)
     {
         $this->tag=$tag;
         $this->file=$file;
+        $this->admin_id=$admin_id;
+
     }
 
     /**
@@ -37,7 +40,7 @@ class ImportJob implements ShouldQueue
     public function handle()
     {
         try {
-            Excel::import(new UsersImport($this->tag),storage_path('app/'.$this->file));
+            Excel::import(new UsersImport($this->tag,$this->admin_id),storage_path('app/'.$this->file));
         }catch (ValidationException $exception){
             $failures = $exception->failures();
             foreach ($failures as $failure) {

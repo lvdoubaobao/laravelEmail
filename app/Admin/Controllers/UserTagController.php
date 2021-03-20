@@ -25,11 +25,10 @@ class UserTagController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new UserTag());
+        $grid->model()->where('admin_id',\Admin::user()->id);
         $grid->model()->orderBy('id','desc');
         $grid->column('id', __('Id'));
         $grid->column('name', __('名称'));
-
-
         return $grid;
     }
 
@@ -61,7 +60,7 @@ class UserTagController extends AdminController
         $form = new Form(new UserTag());
 
         $form->text('name', __('标签'));
-
+        $form->hidden('admin_id')->default(\Admin::user()->id);
         return $form;
     }
 }

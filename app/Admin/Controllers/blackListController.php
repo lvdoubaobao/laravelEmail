@@ -25,12 +25,10 @@ class blackListController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PhoneBlacklist());
-
         $grid->column('id', __('Id'));
         $grid->column('phone', __('Phone'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
-
         return $grid;
     }
 

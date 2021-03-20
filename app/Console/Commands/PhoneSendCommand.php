@@ -72,7 +72,7 @@ class PhoneSendCommand extends Command
                                         if (!$black){
                                             $this->info($user->id);
                                             $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
-                                            sleep(3);
+                                            sleep(2);
                                         }
                                   }
                               });
