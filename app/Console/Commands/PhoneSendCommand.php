@@ -20,7 +20,7 @@ class PhoneSendCommand extends Command
      * @var string
      */
     protected $signature = 'phone:corn';
-    protected  $ringcentralReoisitory;
+    protected $ringcentralReoisitory;
     /**
      * The console command description.
      *
@@ -47,38 +47,52 @@ class PhoneSendCommand extends Command
     public function handle()
     {
 
-        PhoneCorn::where('is_send',0)->where('send_time','<',Carbon::now())->chunkById(10,function ($Corns){
-                foreach ($Corns as $corn){
-                            $ringcentralReoisitory=[];
+        PhoneCorn::where('is_send', '!=',1)->where('send_time', '<', Carbon::now())->chunkById(10, function ($Corns) {
+            foreach ($Corns as $corn) {
+                $ringcentralReoisitory = [];
+                /**
+                 * @var  PhoneCorn $corn
+                 */
+                $corn->is_send = 2;
+                $corn->save();
+
+                $tpl = PhoneTpl::find($corn->phone_tpl_id);
+                $user = User::whereTagId($corn->tag_id)->chunkById(100, function ($users) use ($tpl, $corn) {
+                    if ($corn->ringcenter->isNotEmpty()) {
+                        foreach ($corn->ringcenter as $item) {
                             /**
-                             * @var  PhoneCorn $corn
+                             * @var  RingCenter $item
                              */
-                          //  $corn
-                             $tpl=PhoneTpl::find($corn->phone_tpl_id);
-                              $user= User::whereTagId($corn->tag_id)->chunkById(100,function ($users)use($tpl,$corn){
-                                  if ($corn->ringcenter->isNotEmpty()){
-                                      foreach ($corn->ringcenter as $item){
-                                          /**
-                                           * @var  RingCenter $item
-                                           */
-                                          $ringcentralReoisitory[]=new RingcentralReoisitory($item);
-                                      }
-                                  }
-                                  foreach ($users as $user){
-                                      /**
-                                       * @var User  $user
-                                       */
-                                      $black=  PhoneBlacklist::wherePhone(substr($user->phone,-5))->first();
-                                        if (!$black){
-                                            $this->info($user->id);
-                                            $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user,$tpl);
-                                            sleep(2);
-                                        }
-                                  }
-                              });
-                           $corn->is_send=1;
-                           $corn->save();
+                            $ringcentralReoisitory[] = new RingcentralReoisitory($item);
+                        }
+                    }
+
+                    foreach ($users as $user) {
+                        /**
+                         * @var User $user
+                         */
+                        $PhoneCorn = PhoneCorn::find($corn->id);
+                        if ($PhoneCorn&&$PhoneCorn->is_stop == 1) {//暂停功能
+                            break;
+                        }
+
+                        $black = PhoneBlacklist::wherePhone(substr($user->phone, -5))->first();
+                        if (!$black) {
+                            $this->info($user->id);
+
+                            $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user, $tpl, $corn);
+                            sleep(1);
+                        }
+                    }
+                });
+                $PhoneCorn = PhoneCorn::find($corn->id);
+                $this->info($PhoneCorn->is_stop);
+               if ($PhoneCorn->is_stop!=1){
+                    $corn->is_send = 1;
+                    $corn->save();
                 }
+
+            }
         });
     }
 }

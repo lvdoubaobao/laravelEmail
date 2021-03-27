@@ -3,6 +3,7 @@
 
 namespace App\Reoisitory;
 
+use App\PhoneCorn;
 use App\PhoneHuihua;
 use App\PhoneLog;
 use App\PhoneTpl;
@@ -33,7 +34,7 @@ class RingcentralReoisitory
      * @param $user User|String
      * @param PhoneTpl $phoneTpl
      */
-    public function sendSms( $user, PhoneTpl $phoneTpl)
+    public function sendSms( $user, PhoneTpl $phoneTpl,PhoneCorn $phoneCorn)
     {
         if (is_string($user)){
             $phone=$user;
@@ -41,6 +42,11 @@ class RingcentralReoisitory
             $user->name='ringcenter';
             $user->phone=$phone;
         }
+       $phone= PhoneLog::where('phone',$user->phone)->where('tpl_id',$phoneCorn->id)->first();
+       if ($phone){
+           \Log::info('已经发送',[$user->phone]);
+           return true;
+       }
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
@@ -61,8 +67,11 @@ class RingcentralReoisitory
             $phoneLog->message = json_encode($resp->jsonArray());
             $phoneLog->admin_id=$user->admin_id;
             $phoneLog->phone = $user->phone;
+            $phoneLog->tpl_id=$phoneCorn->id;
             $phoneLog->status = 1;
             $phoneLog->save();
+            $phoneCorn->number= $phoneCorn->number+1;
+            $phoneCorn->save();
             return [
                 'code' => 1,
                 'message' => json_encode($resp->jsonArray())
@@ -71,6 +80,7 @@ class RingcentralReoisitory
             $phoneLog->phone = $user->phone;
             $phoneLog->status = 0;
             $phoneLog->admin_id=$user->admin_id;
+            $phoneLog->tpl_id=$phoneTpl->id;
             $phoneLog->reason = $exception->getMessage();
             $phoneLog->save();
             return [
@@ -88,7 +98,6 @@ class RingcentralReoisitory
                     'messageType' => array('SMS'),
                     'page'=>$page,
                 ));
-
              $data=json_decode( $response->text(),true);
              $page++;
              $totalPage=$data['paging']['totalPages'];

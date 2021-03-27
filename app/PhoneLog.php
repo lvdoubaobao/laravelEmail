@@ -27,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property int|null $admin_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereAdminId($value)
+ * @property int|null $tpl_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneLog whereTplId($value)
  */
 class PhoneLog extends Model
 {

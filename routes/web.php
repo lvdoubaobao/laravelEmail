@@ -17,9 +17,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
- //$mailgun= new \App\Reoisitory\MailGunRespository();
-    $aa=\Illuminate\Support\Facades\Mail::to('736400469@qq.com')->send(new \App\Mail\OrderShipped(\App\EmailTpl::first(),\App\EmailCorn::first(),\App\User::first()));
- dd($aa);
-    //dd($mailgun->send('haha','112'));
+return redirect()->to('/admin');
 });

@@ -29,6 +29,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RingCenter whereUpdatedAt($value)
  * @property string|null $ext
  * @method static \Illuminate\Database\Eloquent\Builder|\App\RingCenter whereExt($value)
+ * @property int|null $admin_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\RingCenter whereAdminId($value)
  */
 class RingCenter extends Model
 {

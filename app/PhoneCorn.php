@@ -31,6 +31,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $ringcenter_count
  * @property int|null $admin_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereAdminId($value)
+ * @property int|null $number
+ * @property int|null $is_stop
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereIsStop($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereNumber($value)
  */
 class PhoneCorn extends Model
 {
