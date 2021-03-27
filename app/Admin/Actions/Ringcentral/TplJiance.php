@@ -33,6 +33,6 @@ class TplJiance extends RowAction
     public function form()
     {
         $this->text('phone','手机号')->required()->default(13153384851);
-        $this->select('zhanghao','选择账户')->options(RingCenter::whereIsDisplay(1)->get()->pluck('name','id'))->required();
+        $this->select('zhanghao','选择账户')->options(RingCenter::whereIsDisplay(1)->where('admin_id',\Admin::user()->id)->get()->pluck('name','id'))->required();
     }
 }
