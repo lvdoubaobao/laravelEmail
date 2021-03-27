@@ -25,7 +25,7 @@ class PhoneLogController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PhoneLog());
-        $grid->model()->where('admin_id',\Admin::user()->id);
+        $grid->model()->where('admin_id',\Admin::user()->id)->orderBy('id','desc');
         $grid->column('id', __('Id'));
         $grid->column('phone', __('手机号'));
         $grid->column('status', __('状态'))->display(function ($value){
