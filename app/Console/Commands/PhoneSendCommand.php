@@ -79,7 +79,6 @@ class PhoneSendCommand extends Command
                         $black = PhoneBlacklist::wherePhone(substr($user->phone, -5))->first();
                         if (!$black) {
                             $this->info($user->id);
-
                             $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user, $tpl, $corn);
                             sleep(1);
                         }

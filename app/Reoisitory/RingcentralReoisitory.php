@@ -50,7 +50,7 @@ class RingcentralReoisitory
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
-
+            sleep(1);
             $request = $this->rcsdk->createMultipartBuilder()
                 ->setBody(array(
                     'from' => array('phoneNumber' => $this->ringcenter->name),
