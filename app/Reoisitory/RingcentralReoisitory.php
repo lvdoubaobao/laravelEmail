@@ -38,11 +38,10 @@ class RingcentralReoisitory
         if (is_string($user)){
             $phone=$user;
             $user=new User();
-            $user->name='test';
+            $user->name='ringcenter';
             $user->phone=$phone;
         }
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
-
         $phoneLog = new PhoneLog();
         try {
 
@@ -59,14 +58,6 @@ class RingcentralReoisitory
                  }
             $request=$request->request('/account/~/extension/~/sms');
             $resp = $this->platform->sendRequest($request);
-
-            /*  $resp = $this->platform->post('/account/~/extension/~/sms',
-                  array(
-                      'from' => array ('phoneNumber' =>$this->ringcenter->name ),
-                      'to' => array(array('phoneNumber' => $user->phone)),
-                    //  'to' => array(array('phoneNumber' =>'+12095793478')),
-                      'text' => $text
-                  ));*/
             $phoneLog->message = json_encode($resp->jsonArray());
             $phoneLog->admin_id=$user->admin_id;
             $phoneLog->phone = $user->phone;
@@ -79,6 +70,7 @@ class RingcentralReoisitory
         } catch (\Exception $exception) {
             $phoneLog->phone = $user->phone;
             $phoneLog->status = 0;
+            $phoneLog->admin_id=$user->admin_id;
             $phoneLog->reason = $exception->getMessage();
             $phoneLog->save();
             return [
