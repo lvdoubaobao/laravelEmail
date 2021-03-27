@@ -44,7 +44,7 @@ class PoneCronCommand extends Command
     public function handle()
     {
         $cron_id=$this->argument('cron_id');
-        $corn=PhoneCorn::where('is_send','!=',1)->where('id',$cron_id)->first($cron_id);
+        $corn=PhoneCorn::where('is_send','!=',1)->where('id',$cron_id)->first();
         $corn->is_send = 2;
         $corn->save();
         $tpl = PhoneTpl::find($corn->phone_tpl_id);
