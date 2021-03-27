@@ -19,7 +19,7 @@ class TplJiance extends RowAction
         $phone=  $request->get('phone');
         $ringCenter=RingCenter::findOrFail($request->get('zhanghao'));
         $repos= new RingcentralReoisitory($ringCenter);
-        $res=$repos->sendSms($phone,$model);
+        $res=$repos->sendSms1($phone,$model);
         if ($res['code']==0){
 
             return $this->response()->error($res['message'])->refresh();
