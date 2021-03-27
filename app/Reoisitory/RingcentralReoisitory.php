@@ -89,6 +89,55 @@ class RingcentralReoisitory
             ];
         }
     }
+    public function sendSms1( $user, PhoneTpl $phoneTpl)
+    {
+        if (is_string($user)){
+            $phone=$user;
+            $user=new User();
+            $user->name='ringcenter';
+            $user->phone=$phone;
+        }
+
+        $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
+        $phoneLog = new PhoneLog();
+        try {
+
+            $request = $this->rcsdk->createMultipartBuilder()
+                ->setBody(array(
+                    'from' => array('phoneNumber' => $this->ringcenter->name),
+                    'to' => array(array('phoneNumber' => $user->phone)),
+                    'text' => $text
+                ));
+            if (!empty($phoneTpl->image)) {
+                foreach ($phoneTpl->image as $file) {
+                    $request = $request->add(fopen(storage_path('app/public/' . $file), 'r'), $file);
+                }
+            }
+            $request=$request->request('/account/~/extension/~/sms');
+            $resp = $this->platform->sendRequest($request);
+            $phoneLog->message = json_encode($resp->jsonArray());
+            $phoneLog->admin_id=$user->admin_id;
+            $phoneLog->phone = $user->phone;
+
+            $phoneLog->status = 1;
+            $phoneLog->save();
+            return [
+                'code' => 1,
+                'message' => json_encode($resp->jsonArray())
+            ];
+        } catch (\Exception $exception) {
+            $phoneLog->phone = $user->phone;
+            $phoneLog->status = 0;
+            $phoneLog->admin_id=$user->admin_id;
+            $phoneLog->tpl_id=$phoneTpl->id;
+            $phoneLog->reason = $exception->getMessage();
+            $phoneLog->save();
+            return [
+                'code' => 0,
+                'message' => $exception->getMessage()
+            ];
+        }
+    }
     public function blackList(){
         $page=1;
         $totalPage=100;
