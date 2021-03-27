@@ -24,8 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/PoneCronCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/PoneCronCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +273,7 @@
       <workItem from="1616136192763" duration="11739000" />
       <workItem from="1616807619439" duration="289000" />
       <workItem from="1616812747256" duration="7822000" />
-      <workItem from="1616835984437" duration="1890000" />
+      <workItem from="1616835984437" duration="2235000" />
     </task>
     <servers />
   </component>
