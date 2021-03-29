@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class UserTag extends Model
 {
+    use DateFormat;
     protected  $table='user_tag';
     //
 

@@ -32,5 +32,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PhoneLog extends Model
 {
+    use DateFormat;
     protected  $table='phone_log';
 }

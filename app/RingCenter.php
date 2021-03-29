@@ -34,6 +34,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class RingCenter extends Model
 {
+    use DateFormat;
     protected  $table='ringcenter';
 
 }

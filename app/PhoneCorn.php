@@ -38,6 +38,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PhoneCorn extends Model
 {
+    use DateFormat;
     protected $table='phone_corn';
     public function ringcenter(){
         return $this->belongsToMany(RingCenter::class,'phone_ringcenter','corn_id','ringcenter_id');

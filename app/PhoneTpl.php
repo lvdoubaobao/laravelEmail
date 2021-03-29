@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PhoneTpl extends Model
 {
+    use DateFormat;
     protected $table='phone_tpl';
     protected  $casts =[
         'image'=>'array'
