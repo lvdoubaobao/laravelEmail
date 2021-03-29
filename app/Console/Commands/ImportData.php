@@ -59,6 +59,8 @@ class ImportData extends Command
                         $failure->errors(); // Actual error messages from Laravel validator
                         $failure->values(); // The values of the row that has failed.
                     }
+                } catch (\Exception $exception){
+                    \Log::info('excel出错',[$exception->getMessage()]);
                 }
             }
         });

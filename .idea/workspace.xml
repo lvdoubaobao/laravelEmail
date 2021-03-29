@@ -23,13 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/laravelEmail.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravelEmail.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/ImportData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/LockCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/LockCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/UsersImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/UsersImport.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +276,7 @@
       <workItem from="1616136192763" duration="11739000" />
       <workItem from="1616807619439" duration="289000" />
       <workItem from="1616812747256" duration="7822000" />
-      <workItem from="1616835984437" duration="13563000" />
+      <workItem from="1616835984437" duration="14085000" />
     </task>
     <servers />
   </component>

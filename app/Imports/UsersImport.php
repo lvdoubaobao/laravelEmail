@@ -43,9 +43,9 @@ class UsersImport implements ToCollection,WithHeadingRow
              if (!$user){
                 $user= new User();
              }
-             $user->name=$row['name'];
-             $user->email=$row['email'];
-             $user->phone=$row['phone'];
+             $user->name=$row['name'] ?? '';
+             $user->email=$row['email'] ?? '';
+             $user->phone=$row['phone'] ?? '';
              $user->country=$row['country'];
              $user->province=$row['province'];
              $user->password=bcrypt('123456');

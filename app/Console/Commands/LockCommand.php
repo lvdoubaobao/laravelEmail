@@ -44,7 +44,7 @@ class LockCommand extends Command
                 $this->info($i);
                 $this->info(Carbon::now()->toDateTimeString());
             },function (){
-               sleep(3);
+               sleep(2);
             });
         }
 
