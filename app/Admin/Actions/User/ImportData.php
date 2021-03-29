@@ -30,7 +30,7 @@ class ImportData extends Action
         $import->tag_id = $tag;
         $import->name = $name;
         $import->save();
-        return $this->response()->success('已成功上传')->refresh();
+        return $this->response()->success('已成功上传,请过几分钟查看客户')->refresh();
     }
 
     public function form()
