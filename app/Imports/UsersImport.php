@@ -4,12 +4,14 @@ namespace App\Imports;
 
 use App\User;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\SkipsErrors;
 use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\SkipsOnFailure;
+use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
@@ -19,7 +21,7 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 use Throwable;
 
-class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValidation,WithHeadingRow,SkipsOnError,SkipsOnFailure
+class UsersImport implements ToCollection,WithHeadingRow
 {
     use Importable,SkipsFailures,SkipsErrors;
 
@@ -34,6 +36,27 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
     {
         return 1;
     }
+    public function collection(Collection $collection)
+    {
+            foreach ($collection as $row){
+             $user= User::where('phone',$row['phone'])->where('tag_id',$this->tag)->first();
+             if (!$user){
+                $user= new User();
+             }
+             $user->name=$row['name'];
+             $user->email=$row['email'];
+             $user->phone=$row['phone'];
+             $user->country=$row['country'];
+             $user->province=$row['province'];
+             $user->password=bcrypt('123456');
+             $user->city=$row['city'];
+             $user->tag_id=$this->tag;
+             $user->since=$row['since'];
+             $user->admin_id=$this->admin_id;
+             $user->save();
+            }
+    }
+
     /**
     * @param array $row
     *
@@ -67,14 +90,7 @@ class UsersImport implements ToModel,WithBatchInserts,WithChunkReading,WithValid
         ];
 
     }
-    public function chunkSize(): int
-    {
-       return 100;
-    }
-    public function batchSize(): int
-    {
-       return 100;
-    }
+
 
 
 }
