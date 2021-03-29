@@ -19,7 +19,7 @@ class PhoneSendCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'phone:corn';
+    protected $signature = 'phone:corn {admin_id}';
     protected $ringcentralReoisitory;
     /**
      * The console command description.
@@ -46,8 +46,10 @@ class PhoneSendCommand extends Command
      */
     public function handle()
     {
-
-        PhoneCorn::where('is_send', '!=',1)->where('send_time', '<', Carbon::now())->chunkById(10, function ($Corns) {
+        $admin_id=$this->argument('admin_id');
+        PhoneCorn::where('is_send', '!=',1)
+            ->where('admin_id',$admin_id)
+            ->where('send_time', '<', Carbon::now())->chunkById(10, function ($Corns) {
             foreach ($Corns as $corn) {
                 $ringcentralReoisitory = [];
                 /**
@@ -66,7 +68,6 @@ class PhoneSendCommand extends Command
                             $ringcentralReoisitory[] = new RingcentralReoisitory($item);
                         }
                     }
-
                     foreach ($users as $user) {
                         /**
                          * @var User $user
