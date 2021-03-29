@@ -23,9 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravelEmail.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravelEmail.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,6 +187,7 @@
       <path value="$PROJECT_DIR$/vendor/stancl/jobpipeline" />
       <path value="$PROJECT_DIR$/vendor/stancl/tenancy" />
       <path value="$PROJECT_DIR$/vendor/stancl/virtualcolumn" />
+      <path value="$PROJECT_DIR$/vendor/predis/predis" />
     </include_path>
   </component>
   <component name="ProjectId" id="1enxBozQ4To8nTFNWJmgmm4Bhsg" />
@@ -274,7 +279,7 @@
       <workItem from="1616136192763" duration="11739000" />
       <workItem from="1616807619439" duration="289000" />
       <workItem from="1616812747256" duration="7822000" />
-      <workItem from="1616835984437" duration="10405000" />
+      <workItem from="1616835984437" duration="13563000" />
     </task>
     <servers />
   </component>
@@ -294,10 +299,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616981723678">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617000399044">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1616981723678" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1617000399044" />
     <state x="412" y="279" key="#com.jetbrains.php.debug.validation.PhpWebServerValidationDialog#" timestamp="1616822184229">
       <screen x="0" y="0" width="1440" height="900" />
     </state>

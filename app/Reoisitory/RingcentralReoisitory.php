@@ -9,7 +9,9 @@ use App\PhoneLog;
 use App\PhoneTpl;
 use App\RingCenter;
 use App\User;
+use Illuminate\Support\Facades\Redis;
 use RingCentral\SDK\SDK;
+use function Clue\StreamFilter\fun;
 use function Matrix\add;
 
 class RingcentralReoisitory
@@ -50,7 +52,7 @@ class RingcentralReoisitory
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
-            sleep(1);
+
             $request = $this->rcsdk->createMultipartBuilder()
                 ->setBody(array(
                     'from' => array('phoneNumber' => $this->ringcenter->name),
@@ -118,7 +120,6 @@ class RingcentralReoisitory
             $phoneLog->message = json_encode($resp->jsonArray());
             $phoneLog->admin_id=$user->admin_id;
             $phoneLog->phone = $user->phone;
-
             $phoneLog->status = 1;
             $phoneLog->save();
             return [
@@ -194,6 +195,7 @@ class RingcentralReoisitory
                            'to' => array(array('phoneNumber' => $phone)),
                            'text' => $desc
                        ));*/
+            $aa=$resp->response()->getHeaders();
             return [
                 'code' => 1,
                 'message' => json_encode($resp->jsonArray())
