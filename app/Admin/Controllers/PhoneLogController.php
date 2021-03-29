@@ -45,7 +45,7 @@ class PhoneLogController extends AdminController
         $grid->column('admin_id','用户')->display(function ($value){
             return  Administrator::find($value)->username ?? '';
         });
-        $grid->column('message', __('信息'));
+        $grid->column('message', __('信息'))->limit(20);
         $grid->column('reason', __('失败原因'));
         $grid->column('created_at', __('创建时间'));
         $grid->disableCreateButton();
