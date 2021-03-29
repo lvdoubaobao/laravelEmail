@@ -6,6 +6,7 @@ use App\Admin\Actions\User\ImportData;
 use App\Admin\Actions\User\ImportPost;
 use App\User;
 use App\UserTag;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -40,6 +41,10 @@ class UserCtroller extends AdminController
         $grid->column('country', __('country'));
         $grid->column('province', __('province'));
         $grid->column('since', __('since'));
+
+        $grid->column('admin_id','用户')->display(function ($value){
+            return  Administrator::find($value)->username ?? '';
+        });
         $grid->column('tag_id', __('标签'))->display(function ($value){
             return UserTag::find($value)->name ?? '';
         });
@@ -53,7 +58,9 @@ class UserCtroller extends AdminController
             $filter->like('province','province');
             $filter->like('since','since');
             $filter->in('tag_id','标签')->multipleSelect(UserTag::where('admin_id',Admin::user()->id)->get()->pluck('name','id'));
-
+            if (Admin::user()->id==1) {
+                $filter->in('admin_id', '用户')->select(Administrator::get()->pluck('username', 'id'));
+            }
         });
         $grid->column('created_at', __('创建时间'));
         if (!Admin::user()->can('customer.export')){

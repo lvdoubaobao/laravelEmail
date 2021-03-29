@@ -28,11 +28,7 @@
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneCornController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneLogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneLogController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/PhoneTplController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/PhoneTplController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/RingcentralController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/RingcentralController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserTagController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserTagController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/EmailCorn.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/EmailCorn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Import.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Import.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Imports/UsersImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/UsersImport.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -283,7 +279,7 @@
       <workItem from="1616136192763" duration="11739000" />
       <workItem from="1616807619439" duration="289000" />
       <workItem from="1616812747256" duration="7822000" />
-      <workItem from="1616835984437" duration="16969000" />
+      <workItem from="1616835984437" duration="17631000" />
     </task>
     <servers />
   </component>
@@ -303,10 +299,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617005716576">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617007652649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1617005716576" />
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1617007652649" />
     <state x="412" y="279" key="#com.jetbrains.php.debug.validation.PhpWebServerValidationDialog#" timestamp="1616822184229">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -315,10 +311,25 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="456" y="183" key="NewPhpClassDialog/0.0.1440.900@0.0.1440.900" timestamp="1616983592714" />
+    <state x="386" y="146" width="667" height="608" key="find.popup" timestamp="1617006725939">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="386" y="146" width="667" height="608" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1617006725939" />
     <state x="385" y="140" width="670" height="760" key="search.everywhere.popup" timestamp="1617004031728">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="140" width="670" height="760" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1617004031728" />
     <state x="385" y="148" width="670" height="676" key="search.everywhere.popup/0.23.1440.801@0.23.1440.801" timestamp="1614138359599" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Admin/Controllers/PhoneLogController.php</url>
+          <line>44</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

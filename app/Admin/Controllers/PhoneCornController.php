@@ -67,8 +67,9 @@ class PhoneCornController extends AdminController
         $grid->column('created_at', __('创建时间'));
         $grid->filter(function (Grid\Filter  $filter){
             $filter->in('is_send','状态')->select(['未发送','已发送','正在发送']);
-            $filter->in('admin_id','用户')->select(Administrator::get()->pluck('username','id'));
-
+            if (Admin::user()->id==1) {
+                $filter->in('admin_id', '用户')->select(Administrator::get()->pluck('username', 'id'));
+            }
         });
         return $grid;
     }

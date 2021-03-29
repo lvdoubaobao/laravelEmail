@@ -45,8 +45,9 @@ class PhoneTplController extends AdminController
             $actions->add(new TplJiance());
         });
         $grid->filter(function (Grid\Filter $filter){
-            $filter->in('admin_id','用户')->select(Administrator::get()->pluck('username','id'));
-
+            if (Admin::user()->id==1) {
+                $filter->in('admin_id', '用户')->select(Administrator::get()->pluck('username', 'id'));
+            }
         });
         return $grid;
     }

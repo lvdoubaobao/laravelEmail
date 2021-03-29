@@ -49,6 +49,11 @@ class ImportController extends AdminController
             return  Administrator::find($value)->username ?? '';
         });
 
+        $grid->filter(function (Grid\Filter $filter){
+            if (Admin::user()->id==1) {
+                $filter->in('admin_id', '用户')->select(Administrator::get()->pluck('username', 'id'));
+            }
+        });
         $grid->disableExport();
         $grid->disableActions();
 

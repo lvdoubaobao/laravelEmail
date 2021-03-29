@@ -57,7 +57,9 @@ class PhoneLogController extends AdminController
         $grid->filter(function (Grid\Filter $filter){
             $filter->like('phone','手机号');
             $filter->in('status','状态')->select(['发送失败','发送成功']);
-            $filter->in('admin_id','用户')->select(Administrator::get()->pluck('username','id'));
+            if (Admin::user()->id==1) {
+                $filter->in('admin_id', '用户')->select(Administrator::get()->pluck('username', 'id'));
+            }
         });
 
         return $grid;
