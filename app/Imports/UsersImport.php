@@ -17,11 +17,12 @@ use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithProgressBar;
 use Maatwebsite\Excel\Concerns\WithValidation;
 use Maatwebsite\Excel\Validators\Failure;
 use Throwable;
 
-class UsersImport implements ToCollection,WithHeadingRow
+class UsersImport implements ToCollection,WithHeadingRow,WithProgressBar
 {
     use Importable,SkipsFailures,SkipsErrors;
 
@@ -39,6 +40,7 @@ class UsersImport implements ToCollection,WithHeadingRow
     public function collection(Collection $collection)
     {
             foreach ($collection as $row){
+
              $user= User::where('phone',$row['phone'])->where('tag_id',$this->tag)->first();
              if (!$user){
                 $user= new User();

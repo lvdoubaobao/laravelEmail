@@ -41,17 +41,20 @@ class ImportData extends Command
      */
     public function handle()
     {
-        ini_set('memory_limit', '2024M');
+        ini_set('memory_limit', '-1');
         Import::where('is_send',0)->chunk(1,function ($items){
             foreach ($items as $item){
                 /**
                  * @var Import $item
                  */
                 try {
-                    Excel::import(new UsersImport($item->tag_id,$item->admin_id),storage_path('app/'.$item->name));
+                    $this->output->title('Starting import');
+                    Excel::import((new UsersImport($item->tag_id,$item->admin_id))->withOutput($this->output),storage_path('app/'.$item->name));
                     $item->is_send=1;
                     $item->save();
                     $this->info($item->name);
+                    $this->output->success('Import successful');
+
                     \Log::info('完成');
                 }catch (ValidationException $exception){
                     $failures = $exception->failures();
