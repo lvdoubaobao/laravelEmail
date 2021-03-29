@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\UserTag;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -25,7 +26,9 @@ class UserTagController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new UserTag());
-        $grid->model()->where('admin_id',\Admin::user()->id);
+        if (Admin::user()->id!==1) {
+            $grid->model()->where('admin_id', \Admin::user()->id);
+        }
         $grid->model()->orderBy('id','desc');
         $grid->column('id', __('Id'));
         $grid->column('name', __('名称'));

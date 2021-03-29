@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Import;
 use App\UserTag;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -28,8 +29,14 @@ class ImportController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new Import());
-        $grid->model()->where('admin_id',Admin::user()->id)->orderBy('id','desc');
+        if (Admin::user()->id!==1) {
+            $grid->model()->where('admin_id', Admin::user()->id)->orderBy('id', 'desc');
+        }else{
+            $grid->model()->orderBy('id', 'desc');
+
+        }
         $grid->column('name','excel');
+
         $grid->column('tag_id','标签')->display(function ($value){
             return UserTag::find($value)->name ?? '';
         });
@@ -37,8 +44,14 @@ class ImportController extends AdminController
         $grid->column('is_send', __('是否完成'))->display(function ($value){
             return $value==1 ? '完成' :' 未完成';
         });
+
+        $grid->column('admin_id','用户')->display(function ($value){
+            return  Administrator::find($value)->username ?? '';
+        });
+
         $grid->disableExport();
         $grid->disableActions();
+
         return $grid;
     }
 

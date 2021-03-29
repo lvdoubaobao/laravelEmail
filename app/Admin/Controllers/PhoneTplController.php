@@ -5,7 +5,9 @@ namespace App\Admin\Controllers;
 use App\Admin\Actions\Ringcentral\Jiance;
 use App\Admin\Actions\Ringcentral\TplJiance;
 use App\PhoneTpl;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -27,15 +29,24 @@ class PhoneTplController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PhoneTpl());
-        $grid->model()->where('admin_id',\Admin::user()->id);
+        if (Admin::user()->id!==1) {
+            $grid->model()->where('admin_id', \Admin::user()->id);
+        }
         $grid->column('id', __('Id'));
         $grid->column('name', __('名称'));
         $grid->column('tpl', __('模板消息'));
 
         $grid->column('created_at', __('创建时间'));
 
+        $grid->column('admin_id','用户')->display(function ($value){
+            return  Administrator::find($value)->username ?? '';
+        });
         $grid->actions(function ($actions) {
             $actions->add(new TplJiance());
+        });
+        $grid->filter(function (Grid\Filter $filter){
+            $filter->in('admin_id','用户')->select(Administrator::get()->pluck('username','id'));
+
         });
         return $grid;
     }

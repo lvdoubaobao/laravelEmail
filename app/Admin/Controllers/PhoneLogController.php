@@ -3,7 +3,9 @@
 namespace App\Admin\Controllers;
 
 use App\PhoneLog;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
+use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
@@ -25,7 +27,12 @@ class PhoneLogController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PhoneLog());
-        $grid->model()->where('admin_id',\Admin::user()->id)->orderBy('id','desc');
+        if (Admin::user()->id!==1) {
+            $grid->model()->where('admin_id', \Admin::user()->id)->orderBy('id', 'desc');
+        }else{
+            $grid->model()->orderBy('id', 'desc');
+
+        }
         $grid->column('id', __('Id'));
         $grid->column('phone', __('手机号'));
         $grid->column('status', __('状态'))->display(function ($value){
@@ -34,6 +41,10 @@ class PhoneLogController extends AdminController
             0=>'warning',
             1=>'success'
         ]);
+
+        $grid->column('admin_id','用户')->display(function ($value){
+            return  Administrator::find($value)->username ?? '';
+        });
         $grid->column('message', __('信息'));
         $grid->column('reason', __('失败原因'));
         $grid->column('created_at', __('创建时间'));
@@ -46,6 +57,7 @@ class PhoneLogController extends AdminController
         $grid->filter(function (Grid\Filter $filter){
             $filter->like('phone','手机号');
             $filter->in('status','状态')->select(['发送失败','发送成功']);
+            $filter->in('admin_id','用户')->select(Administrator::get()->pluck('username','id'));
         });
 
         return $grid;

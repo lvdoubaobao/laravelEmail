@@ -26,5 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Import extends Model
 {
+    use DateFormat;
     protected $table='import';
 }

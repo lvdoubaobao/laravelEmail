@@ -6,6 +6,7 @@ use App\Admin\Selectable\RingCenterAble;
 use App\PhoneCorn;
 use App\PhoneTpl;
 use App\UserTag;
+use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Form;
@@ -33,7 +34,10 @@ class PhoneCornController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new PhoneCorn());
-        $grid->model()->where('admin_id',\Admin::user()->id);
+        if (Admin::user()->id!==1){
+            $grid->model()->where('admin_id',\Admin::user()->id);
+        }
+
         $grid->column('id', __('Id'));
         $grid->column('phone_tpl_id', __('模板'))->display(function ($value){
             return PhoneTpl::find($value)->name ?? '';
@@ -43,6 +47,9 @@ class PhoneCornController extends AdminController
         });
         $grid->column('is_stop','是否停止')->switch($this->states);
         $grid->column('number','发送数量');
+        $grid->column('admin_id','用户')->display(function ($value){
+           return  Administrator::find($value)->username ?? '';
+        });
         $grid->column('send_time', __('发送时间'));
         $grid->column('is_send', __('是否发送'))->display(function ($value){
             if ($value==0){
@@ -58,6 +65,11 @@ class PhoneCornController extends AdminController
             2=>'success'
         ]);
         $grid->column('created_at', __('创建时间'));
+        $grid->filter(function (Grid\Filter  $filter){
+            $filter->in('is_send','状态')->select(['未发送','已发送','正在发送']);
+            $filter->in('admin_id','用户')->select(Administrator::get()->pluck('username','id'));
+
+        });
         return $grid;
     }
 

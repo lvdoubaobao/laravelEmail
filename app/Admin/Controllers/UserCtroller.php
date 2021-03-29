@@ -29,7 +29,9 @@ class UserCtroller extends AdminController
     protected function grid()
     {
         $grid = new Grid(new User());
-        $grid->model()->where('admin_id',\Admin::user()->id);
+        if (Admin::user()->id!==1) {
+            $grid->model()->where('admin_id', \Admin::user()->id);
+        }
         $grid->model()->orderBy('id','desc');
         $grid->column('id', __('Id'));
         $grid->column('name', __('姓名'));
