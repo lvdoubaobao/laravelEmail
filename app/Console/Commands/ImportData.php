@@ -41,6 +41,7 @@ class ImportData extends Command
      */
     public function handle()
     {
+        ini_set('memory_limit', '2024M');
         Import::where('is_send',0)->chunk(1,function ($items){
             foreach ($items as $item){
                 /**
@@ -51,6 +52,7 @@ class ImportData extends Command
                     $item->is_send=1;
                     $item->save();
                     $this->info($item->name);
+                    \Log::info('完成');
                 }catch (ValidationException $exception){
                     $failures = $exception->failures();
                     foreach ($failures as $failure) {
