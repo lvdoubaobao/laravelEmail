@@ -36,7 +36,7 @@ class Kernel extends ConsoleKernel
                 /**
                  * @var Administrator $admin
                  */
-                $schedule->command('phone:corn '.$admin->id)->everyMinute()->withoutOverlapping();
+                $schedule->command('phone:corn '.$admin->id)->everyMinute()->withoutOverlapping()->runInBackground();
             }
         });
         $schedule->command('import:data')->everyMinute()->withoutOverlapping();
