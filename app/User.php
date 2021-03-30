@@ -45,6 +45,7 @@ use Illuminate\Notifications\Notifiable;
  * @mixin \Eloquent
  * @property int|null $admin_id
  * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereAdminId($value)
+ * @property-read \App\PhoneLog|null $log
  */
 class User extends Authenticatable
 {
@@ -77,5 +78,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function log(){
+        return $this->hasOne(PhoneLog::class,'phone','phone');
+    }
 }

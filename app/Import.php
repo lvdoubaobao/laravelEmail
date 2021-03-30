@@ -23,6 +23,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Import whereName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Import whereTagId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Import whereUpdatedAt($value)
+ * @property int|null $is_send
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Import whereIsSend($value)
  */
 class Import extends Model
 {

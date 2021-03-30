@@ -58,8 +58,11 @@ class PhoneSendCommand extends Command
                 $corn->is_send = 2;
                 $corn->save();
                 $tpl = PhoneTpl::find($corn->phone_tpl_id);
-
-                $user = User::whereTagId($corn->tag_id)->orderBy('id','desc')->chunkById(100, function ($users) use ($tpl, $corn) {
+                $user=User::query();
+                if ($corn->last_user_id){
+                    $user=$user->where('id','>',$corn->last_user_id);
+                }
+                $user = $user->whereTagId($corn->tag_id)->chunkById(100, function ($users) use ($tpl, $corn) {
                     if ($corn->ringcenter->isNotEmpty()) {
                         foreach ($corn->ringcenter as $item) {
                             /**
@@ -74,6 +77,8 @@ class PhoneSendCommand extends Command
                          */
                         $PhoneCorn = PhoneCorn::find($corn->id);
                         if ($PhoneCorn&&$PhoneCorn->is_stop == 1) {//暂停功能
+                            $PhoneCorn->last_user_id=$user->id;
+                            $PhoneCorn->save();
                             break;
                         }
 
@@ -88,6 +93,7 @@ class PhoneSendCommand extends Command
                 $this->info($PhoneCorn->is_stop);
                if ($PhoneCorn->is_stop!=1){
                     $corn->is_send = 1;
+
                     $corn->save();
                 }
 

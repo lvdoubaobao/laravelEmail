@@ -35,6 +35,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $is_stop
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereIsStop($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereNumber($value)
+ * @property int|null $last_user_id
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\PhoneCorn whereLastUserId($value)
  */
 class PhoneCorn extends Model
 {
