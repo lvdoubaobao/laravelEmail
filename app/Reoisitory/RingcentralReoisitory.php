@@ -52,32 +52,38 @@ class RingcentralReoisitory
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
-
-            $request = $this->rcsdk->createMultipartBuilder()
-                ->setBody(array(
-                    'from' => array('phoneNumber' => $this->ringcenter->name),
-                    'to' => array(array('phoneNumber' => $user->phone)),
-                    'text' => $text
-                ));
-                 if (!empty($phoneTpl->image)) {
-                     foreach ($phoneTpl->image as $file) {
-                         $request = $request->add(fopen(storage_path('app/public/' . $file), 'r'), $file);
-                     }
-                 }
-            $request=$request->request('/account/~/extension/~/sms');
-            $resp = $this->platform->sendRequest($request);
-            $phoneLog->message = json_encode($resp->jsonArray());
-            $phoneLog->admin_id=$user->admin_id;
-            $phoneLog->phone = $user->phone;
-            $phoneLog->tpl_id=$phoneCorn->id;
-            $phoneLog->status = 1;
-            $phoneLog->save();
-            $phoneCorn->number= $phoneCorn->number+1;
-            $phoneCorn->save();
-            return [
-                'code' => 1,
-                'message' => json_encode($resp->jsonArray())
-            ];
+         return   Redis::throttle($phoneCorn->id)->allow(39)->every(60)->then(
+                function ()use ($user,$phoneCorn,$phoneLog,$text){
+                    $request = $this->rcsdk->createMultipartBuilder()
+                        ->setBody(array(
+                            'from' => array('phoneNumber' => $this->ringcenter->name),
+                            'to' => array(array('phoneNumber' => $user->phone)),
+                            'text' => $text
+                        ));
+                    if (!empty($phoneTpl->image)) {
+                        foreach ($phoneTpl->image as $file) {
+                            $request = $request->add(fopen(storage_path('app/public/' . $file), 'r'), $file);
+                        }
+                    }
+                    $request=$request->request('/account/~/extension/~/sms');
+                    $resp = $this->platform->sendRequest($request);
+                    $phoneLog->message = json_encode($resp->jsonArray());
+                    $phoneLog->admin_id=$user->admin_id;
+                    $phoneLog->phone = $user->phone;
+                    $phoneLog->tpl_id=$phoneCorn->id;
+                    $phoneLog->status = 1;
+                    $phoneLog->save();
+                    $phoneCorn->number= $phoneCorn->number+1;
+                    $phoneCorn->save();
+                    return [
+                        'code' => 1,
+                        'message' => json_encode($resp->jsonArray())
+                    ];
+                },
+                function (){
+                    sleep(1);
+                }
+            );
         } catch (\Exception $exception) {
             $phoneLog->phone = $user->phone;
             $phoneLog->status = 0;

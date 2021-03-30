@@ -57,7 +57,6 @@ class PhoneSendCommand extends Command
                  */
                 $corn->is_send = 2;
                 $corn->save();
-
                 $tpl = PhoneTpl::find($corn->phone_tpl_id);
                 $user = User::whereTagId($corn->tag_id)->chunkById(100, function ($users) use ($tpl, $corn) {
                     if ($corn->ringcenter->isNotEmpty()) {
@@ -76,12 +75,10 @@ class PhoneSendCommand extends Command
                         if ($PhoneCorn&&$PhoneCorn->is_stop == 1) {//暂停功能
                             break;
                         }
-
                         $black = PhoneBlacklist::wherePhone(substr($user->phone, -5))->first();
                         if (!$black) {
                             $this->info($user->id);
                             $ringcentralReoisitory[array_rand($ringcentralReoisitory)]->sendSms($user, $tpl, $corn);
-                            sleep(1);
                         }
                     }
                 });
