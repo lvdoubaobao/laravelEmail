@@ -81,7 +81,6 @@ class PhoneSendCommand extends Command
                             $PhoneCorn->save();
                             break;
                         }
-
                         $black = PhoneBlacklist::wherePhone(substr($user->phone, -5))->first();
                         if (!$black) {
                             $this->info($user->id);

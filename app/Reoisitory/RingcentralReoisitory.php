@@ -52,8 +52,7 @@ class RingcentralReoisitory
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
-         return   Redis::throttle($phoneCorn->id)->allow(2)->every(4)->then(
-                function ()use ($user,$phoneCorn,$phoneLog,$text){
+
                     $request = $this->rcsdk->createMultipartBuilder()
                         ->setBody(array(
                             'from' => array('phoneNumber' => $this->ringcenter->name),
@@ -75,15 +74,13 @@ class RingcentralReoisitory
                     $phoneLog->save();
                     $phoneCorn->number= $phoneCorn->number+1;
                     $phoneCorn->save();
+
                     return [
                         'code' => 1,
                         'message' => json_encode($resp->jsonArray())
                     ];
-                },
-                function (){
                     sleep(1);
-                }
-            );
+
         } catch (\Exception $exception) {
             $phoneLog->phone = $user->phone;
             $phoneLog->status = 0;

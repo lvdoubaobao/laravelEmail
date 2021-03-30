@@ -40,10 +40,11 @@ class LockCommand extends Command
     public function handle()
     {
         for ($i=0;$i<=1000;$i++){
-            Redis::throttle('phone')->allow(3)->every(5)->then(function ()use ($i){
+            Redis::throttle('phone')->allow(3)->every(10)->then(function ()use ($i){
                 $this->info($i);
                 $this->info(Carbon::now()->toDateTimeString());
-            },function (){
+            },function ()use ($i){
+                $this->info($i.'点点');
                sleep(2);
             });
         }
