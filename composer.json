@@ -26,7 +26,8 @@
         "predis/predis": "^1.1",
         "ringcentral/ringcentral-php": "^2.2",
         "stancl/tenancy": "^3.4",
-        "vemcogroup/laravel-sparkpost-driver": "^4.0"
+        "vemcogroup/laravel-sparkpost-driver": "^4.0",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.7",

@@ -52,7 +52,7 @@ class RingcentralReoisitory
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
-         return   Redis::throttle($phoneCorn->id)->allow(39)->every(60)->then(
+         return   Redis::throttle($phoneCorn->id)->allow(3)->every(5)->then(
                 function ()use ($user,$phoneCorn,$phoneLog,$text){
                     $request = $this->rcsdk->createMultipartBuilder()
                         ->setBody(array(
@@ -105,7 +105,6 @@ class RingcentralReoisitory
             $user->name='ringcenter';
             $user->phone=$phone;
         }
-
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
