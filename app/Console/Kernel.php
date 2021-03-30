@@ -39,7 +39,7 @@ class Kernel extends ConsoleKernel
                 $schedule->command('phone:corn '.$admin->id)->everyMinute()->withoutOverlapping()->runInBackground();
             }
         });
-      //  $schedule->command('import:data')->everyMinute()->withoutOverlapping();
+        $schedule->command('import:data')->everyMinute()->withoutOverlapping();
      /*   $schedule->command('user:send 1')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 2')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 0')->everyTwoHours()->withoutOverlapping();*/

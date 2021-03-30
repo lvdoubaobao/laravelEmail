@@ -54,7 +54,6 @@ class ImportData extends Command
                     $item->save();
                     $this->info($item->name);
                     $this->output->success('Import successful');
-
                     \Log::info('完成');
                 }catch (ValidationException $exception){
                     $failures = $exception->failures();
