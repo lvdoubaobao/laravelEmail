@@ -44,7 +44,7 @@ class RingcentralReoisitory
             $user->name='ringcenter';
             $user->phone=$phone;
         }
-       $phone= PhoneLog::where('phone',$user->phone)->where('tpl_id',$phoneCorn->id)->first();
+       $phone= PhoneLog::where('phone',$user->phone)->where('status',1)->where('tpl_id',$phoneCorn->id)->first();
        if ($phone){
            \Log::info('已经发送',[$user->phone]);
            return true;

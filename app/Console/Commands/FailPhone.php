@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\PhoneCorn;
 use App\PhoneLog;
 use App\PhoneTpl;
 use App\Reoisitory\RingcentralReoisitory;
@@ -16,7 +17,7 @@ class FailPhone extends Command
      *
      * @var string
      */
-    protected $signature = 'Fail:phone';
+    protected $signature = 'Fail:phone {cron_id}';
 
     /**
      * The console command description.
@@ -42,18 +43,27 @@ class FailPhone extends Command
      */
     public function handle()
     {
-
-        PhoneLog::whereStatus(0)->chunkById(100,function ($items){
+        $cron_id=$this->argument('cron_id');
+        PhoneLog::whereStatus(0)->where('tpl_id',$cron_id)->chunkById(100,function ($items){
                 foreach ($items as $item){
-                    $ringcentralReoisitory=new RingcentralReoisitory(RingCenter::findOrFail(1));
+                    $phoneCorn=     PhoneCorn::find($item->tpl_id);
+                    if ($phoneCorn->ringcenter->isNotEmpty()) {
+                        foreach ($phoneCorn->ringcenter as $item1) {
+                            /**
+                             * @var  RingCenter $item1
+                             */
+                            $ringcentralReoisitory = new RingcentralReoisitory($item1);
+                        }
+                    }
                     $this->info($item->id);
                     /**
                      * @var PhoneLog $item
                      */
-                    $ringcentralReoisitory->sendSms(User::wherePhone($item->phone)->first(),PhoneTpl::find(2));
+                    $ringcentralReoisitory->sendSms(User::wherePhone($item->phone)->first(),PhoneTpl::find($phoneCorn->phone_tpl_id),$phoneCorn);
                     $item->status=1;
+                    $this->info($item->phone);
                     $item->save();
-                    sleep(3);
+
 
                 }
         });
