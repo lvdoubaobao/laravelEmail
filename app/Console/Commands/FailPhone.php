@@ -44,7 +44,7 @@ class FailPhone extends Command
     public function handle()
     {
         $cron_id=$this->argument('cron_id');
-        PhoneLog::whereStatus(0)->where('tpl_id',$cron_id)->chunkById(100,function ($items){
+        PhoneLog::whereStatus(0)->where('tpl_id',)->chunkById(100,function ($items){
                 foreach ($items as $item){
                     $phoneCorn=     PhoneCorn::find($item->tpl_id);
                     if ($phoneCorn->ringcenter->isNotEmpty()) {

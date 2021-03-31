@@ -84,7 +84,7 @@ class RingcentralReoisitory
             $phoneLog->phone = $user->phone;
             $phoneLog->status = 0;
             $phoneLog->admin_id=$user->admin_id;
-            $phoneLog->tpl_id=$phoneTpl->id;
+            $phoneLog->tpl_id=$phoneCorn->id;
             $phoneLog->reason = $exception->getMessage();
             $phoneLog->save();
             return [
