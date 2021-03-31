@@ -52,7 +52,6 @@ class RingcentralReoisitory
         $text = str_replace('{{name}}', $user->name, $phoneTpl->tpl);
         $phoneLog = new PhoneLog();
         try {
-
                     $request = $this->rcsdk->createMultipartBuilder()
                         ->setBody(array(
                             'from' => array('phoneNumber' => $this->ringcenter->name),
@@ -74,12 +73,12 @@ class RingcentralReoisitory
                     $phoneLog->save();
                     $phoneCorn->number= $phoneCorn->number+1;
                     $phoneCorn->save();
-
+                    sleep(1);
                     return [
                         'code' => 1,
                         'message' => json_encode($resp->jsonArray())
                     ];
-                    sleep(1);
+
 
         } catch (\Exception $exception) {
             $phoneLog->phone = $user->phone;
