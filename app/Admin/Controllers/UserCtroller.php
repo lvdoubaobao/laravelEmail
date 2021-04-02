@@ -57,7 +57,12 @@ class UserCtroller extends AdminController
             $filter->like('country','country');
             $filter->like('province','province');
             $filter->like('since','since');
-            $filter->in('tag_id','标签')->multipleSelect(UserTag::where('admin_id',Admin::user()->id)->get()->pluck('name','id'));
+            if (Admin::user()->id!==1) {
+                $filter->in('tag_id', '标签')->multipleSelect(UserTag::where('admin_id', Admin::user()->id)->get()->pluck('name', 'id'));
+            }else{
+                $filter->in('tag_id', '标签')->multipleSelect(UserTag::get()->pluck('name', 'id'));
+
+            }
             if (Admin::user()->id==1) {
                 $filter->in('admin_id', '用户')->select(Administrator::get()->pluck('username', 'id'));
             }
