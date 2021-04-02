@@ -41,20 +41,21 @@ class UsersImport implements ToCollection,WithHeadingRow,WithProgressBar
     {
             foreach ($collection as $row){
                 $user= User::where('phone',$row['phone'])->where('tag_id',$this->tag)->first();
-             if (!$user){
-                $user= new User();
+             if (!$user&&$row['phone']){
+                    $user= new User();
+                 $user->name=$row['name'] ?? '';
+                 $user->email=$row['email'] ?? '';
+                 $user->phone=$row['phone'] ?? '';
+                 $user->country=$row['country'];
+                 $user->province=$row['province'];
+                 $user->password=bcrypt('123456');
+                 $user->city=$row['city'];
+                 $user->tag_id=$this->tag;
+                 $user->since=$row['since'];
+                 $user->admin_id=$this->admin_id;
+                 $user->save();
              }
-             $user->name=$row['name'] ?? '';
-             $user->email=$row['email'] ?? '';
-             $user->phone=$row['phone'] ?? '';
-             $user->country=$row['country'];
-             $user->province=$row['province'];
-             $user->password=bcrypt('123456');
-             $user->city=$row['city'];
-             $user->tag_id=$this->tag;
-             $user->since=$row['since'];
-             $user->admin_id=$this->admin_id;
-             $user->save();
+
             }
     }
 
