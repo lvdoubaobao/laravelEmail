@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
     {
 
       /*  $schedule->command('huihua')->everyTwoHours()->withoutOverlapping();*/
-   /*     $schedule->command('blackList')->everyTwoHours()->withoutOverlapping();*/
+     /*   $schedule->command('blackList')->everyTwoHours()->withoutOverlapping();*/
       /*  $schedule->command('email:corn')->everyMinute()->withoutOverlapping();*/
        // $schedule->command('cron:name 21')->everyMinute()->withoutOverlapping();
         Administrator::chunk(3,function($admins)use ($schedule){
@@ -39,7 +39,7 @@ class Kernel extends ConsoleKernel
                 $schedule->command('phone:corn '.$admin->id)->everyMinute()->withoutOverlapping()->runInBackground();
             }
         });
-        $schedule->command('import:data')->everyMinute()->withoutOverlapping();
+       $schedule->command('import:data')->everyMinute()->withoutOverlapping();
      /*   $schedule->command('user:send 1')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 2')->everyTwoHours()->withoutOverlapping();
         $schedule->command('user:send 0')->everyTwoHours()->withoutOverlapping();*/

@@ -29,6 +29,7 @@ class RingcentralReoisitory
             config('ringcentral.RINGCENTRAL_SERVER')
         );
         $this->platform = $this->rcsdk->platform();
+
         $this->platform->login($this->ringcenter->name, $this->ringcenter->ext, $this->ringcenter->password);
     }
 

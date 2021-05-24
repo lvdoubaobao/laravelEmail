@@ -24,7 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Admin/Controllers/UserCtroller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Commands/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/ImportData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Mail/OrderShipped.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/OrderShipped.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reoisitory/MailGunRespository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/MailGunRespository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,6 +283,17 @@
       <workItem from="1617154049665" duration="2029000" />
       <workItem from="1617158655621" duration="1625000" />
       <workItem from="1617359525266" duration="1405000" />
+      <workItem from="1617412671364" duration="267000" />
+      <workItem from="1617691519629" duration="2507000" />
+      <workItem from="1617928948693" duration="14000" />
+      <workItem from="1618386961453" duration="323000" />
+      <workItem from="1618472907459" duration="604000" />
+      <workItem from="1618801216366" duration="2348000" />
+      <workItem from="1618809987560" duration="142000" />
+      <workItem from="1618821250412" duration="2496000" />
+      <workItem from="1620720085898" duration="1202000" />
+      <workItem from="1621654035988" duration="1077000" />
+      <workItem from="1621819063187" duration="265000" />
     </task>
     <servers />
   </component>
@@ -297,6 +313,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="184" y="112" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618821941550">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" width="1071" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1618821941550" />
     <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617007652649">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -313,10 +333,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="386" y="146" width="667" height="608" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1617006725939" />
-    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup" timestamp="1617094884232">
+    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup" timestamp="1621819103084">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1617094884232" />
+    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1621819103084" />
     <state x="385" y="148" width="670" height="676" key="search.everywhere.popup/0.23.1440.801@0.23.1440.801" timestamp="1614138359599" />
   </component>
   <component name="XDebuggerManager">
