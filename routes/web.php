@@ -17,9 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-$mail=new \App\Reoisitory\MailGunRespository();
-$mail->to('736400469@qq.com');
 
-$mail->send('aa','aa');
-//return redirect()->to('/admin');
+return redirect()->to('/admin');
 });
