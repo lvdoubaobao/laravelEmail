@@ -39,11 +39,10 @@ class MailGunRespository
             'html' => $desc,
             'o:tag' => $this->tag
         ];
-        $result = $mailgun->messages()->send($this->mailgun_domian, $params);
-        dd($result);
         try {
-
+            $result = $mailgun->messages()->send($this->mailgun_domian, $params);
             Log::channel('email_success')->info($this->mailgun_to . ':' . $subject . ':发送成功');
+            return $result;
         } catch (\Mailgun\Exception\HttpClientException $exception) {
             Log::channel('email_error')->error($this->mailgun_to . ':' . $subject . ':发送失败', ['exception' => $exception->getMessage()]);
         }

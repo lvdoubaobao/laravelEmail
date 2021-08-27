@@ -40,7 +40,7 @@ class UsersImport implements ToCollection,WithHeadingRow,WithProgressBar
     public function collection(Collection $collection)
     {
             foreach ($collection as $row){
-                $user= User::where('phone',$row['phone'])->where('tag_id',$this->tag)->first();
+                $user= User::where('phone',(string)$row['phone'])->where('tag_id',$this->tag)->first();
              if (!$user&&$row['phone']){
                     $user= new User();
                  $user->name=$row['name'] ?? '';

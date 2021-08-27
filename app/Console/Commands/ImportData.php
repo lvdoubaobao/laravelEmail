@@ -42,8 +42,6 @@ class ImportData extends Command
     public function handle()
     {
         ini_set('memory_limit', '-1');
-
-
         Import::where('is_send',0)->chunk(1,function ($items){
             foreach ($items as $item){
                 /**

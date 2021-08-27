@@ -45,7 +45,7 @@ class RingcentralReoisitory
             $user->name='ringcenter';
             $user->phone=$phone;
         }
-       $phone= PhoneLog::where('phone',$user->phone)->where('status',1)->where('tpl_id',$phoneCorn->id)->first();
+       $phone= PhoneLog::where('phone',(string)$user->phone)->where('status',1)->where('tpl_id',$phoneCorn->id)->first();
        if ($phone){
            \Log::info('已经发送',[$user->phone]);
            return true;
@@ -141,7 +141,7 @@ class RingcentralReoisitory
             ];
         }
     }
-    public function blackList(){
+    public function blackList(\Closure  $closure){
         $page=1;
         $totalPage=100;
         while ($page<=$totalPage){
@@ -153,6 +153,7 @@ class RingcentralReoisitory
              $data=json_decode( $response->text(),true);
              $page++;
              $totalPage=$data['paging']['totalPages'];
+
              foreach ($data['records'] as $item){
                 $phoneHuihua= PhoneHuihua::whereConversationId($item['conversationId'])->first();
                 if (!$phoneHuihua){
@@ -166,8 +167,14 @@ class RingcentralReoisitory
                     $phoneHuihua->attachments=$item['attachments'];
                     $phoneHuihua->subject=$item['subject'];
                     $phoneHuihua->conversation_id=$item['conversationId'];
+                    $phoneHuihua->messageStatus=$item['messageStatus'];
+                    $phoneHuihua->save();
+                }else{
+                    $phoneHuihua->readStatus=$item['readStatus'];
+                    $phoneHuihua->messageStatus=$item['messageStatus'];
                     $phoneHuihua->save();
                 }
+                 $closure($phoneHuihua);
              }
 
         }
@@ -198,6 +205,7 @@ class RingcentralReoisitory
                            'text' => $desc
                        ));*/
             $aa=$resp->response()->getHeaders();
+
             return [
                 'code' => 1,
                 'message' => json_encode($resp->jsonArray())
@@ -211,3 +219,4 @@ class RingcentralReoisitory
         }
     }
 }
+

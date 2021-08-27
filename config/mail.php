@@ -50,11 +50,9 @@ return [
         'ses' => [
             'transport' => 'ses',
         ],
-
         'mailgun' => [
             'transport' => 'mailgun',
         ],
-
         'postmark' => [
             'transport' => 'postmark',
         ],
@@ -103,7 +101,6 @@ return [
 
     'markdown' => [
         'theme' => 'default',
-
         'paths' => [
             resource_path('views/vendor/mail'),
         ],

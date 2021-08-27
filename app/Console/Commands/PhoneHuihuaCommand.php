@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\PhoneHuihua;
 use App\RingCenter;
 use Illuminate\Console\Command;
 
@@ -40,7 +41,9 @@ class PhoneHuihuaCommand extends Command
     {
         RingCenter::whereIsDisplay(1)->get()->map(function ($item){
             $aa=  new \App\Reoisitory\RingcentralReoisitory($item);
-            $aa->blackList();
+            $aa->blackList(function (PhoneHuihua  $huihua){
+                $this->info($huihua->id);
+            });
         });
     }
 }
