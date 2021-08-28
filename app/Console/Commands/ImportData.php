@@ -53,8 +53,8 @@ class ImportData extends Command
                  */
 
                     $this->output->title('Starting import');
-
-                    Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item) {
+                    $num=0;
+                    Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item,$num) {
 
                         // 每100行数据为一批数据进行读取
                         $chunkSize = 100;
@@ -83,10 +83,10 @@ class ImportData extends Command
                                     $user->since = $row['since'] ?? '';
                                     $user->admin_id = $item->admin_id;
                                     $user->save();
-                                    $this->info($user->id.'新');
+                                    $this->info($num++);
 
                                 }else{
-                                    $this->error($user->id);
+                                    $this->info($num++);
                                 }
                             }
                         });
