@@ -69,7 +69,7 @@ class ImportData extends Command
                             foreach ($collection as $row) {
 
                                 $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
-                                $this->error($user->id);
+
                                 if (!$user && $row['phone']) {
                                     $user = new User();
                                     $user->name = $row['name'] ?? '';
@@ -85,6 +85,8 @@ class ImportData extends Command
                                     $user->save();
                                     $this->info($user->id.'新');
 
+                                }else{
+                                    $this->error($user->id);
                                 }
                             }
                         });
