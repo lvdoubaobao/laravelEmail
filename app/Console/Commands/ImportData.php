@@ -54,6 +54,9 @@ class ImportData extends Command
 
                     $this->output->title('Starting import');
                     $num=0;
+
+
+
                     Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item,$num) {
 
                         // 每100行数据为一批数据进行读取
@@ -67,9 +70,13 @@ class ImportData extends Command
                             $collection = $collection->toArray();
 
                             foreach ($collection as $row) {
+                                try {
 
                                 $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
-
+                            }catch (\Exception $exception ){
+                                $this->error($exception->getMessage());
+                                dd($row);
+                            }
                                 if (!$user && $row['phone']) {
                                     $user = new User();
                                     $user->name = $row['name'] ?? '';
@@ -91,6 +98,7 @@ class ImportData extends Command
                             }
                         });
                     });
+
                     $item->is_send = 1;
                     $item->save();
                     $this->info($item->name);
