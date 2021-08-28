@@ -6,6 +6,8 @@ use App\Import;
 use App\Imports\UsersImport;
 use App\Jobs\ImportJob;
 use App\UserTag;
+use Dcat\EasyExcel\Contracts\Sheet as SheetInterface;
+use Dcat\EasyExcel\Support\SheetCollection;
 use Encore\Admin\Actions\Action;
 use Encore\Admin\Admin;
 use Illuminate\Http\Request;
@@ -25,6 +27,15 @@ class ImportData extends Action
         $name = $file->storeAs('excel', $file->getClientOriginalName());
         $tag = $request->input('tag');
         $admin_id = $request->input('admin_id');
+        \Dcat\EasyExcel\Excel::import(storage_path('app/' . $name))->each(function (SheetInterface $sheet)  {
+            $chunkSize = 2;
+            $sheet->chunk($chunkSize, function (SheetCollection $collection)  {
+                    $row=$collection->toArray();
+                    if (!isset($row['phone'])){
+                        throw  new \Exception('请选择正确的模板');
+                    }
+            });
+        });
         $import = new Import();
         $import->admin_id = $admin_id;
         $import->tag_id = $tag;

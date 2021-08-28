@@ -67,7 +67,7 @@ class ImportData extends Command
                             $collection = $collection->toArray();
 
                             foreach ($collection as $row) {
-                                dd($row);
+
                                 $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
                                 $this->error($user->id);
                                 if (!$user && $row['phone']) {
