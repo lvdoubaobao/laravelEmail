@@ -23,12 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb2c28b8-d3a7-4a32-b254-d212d6a31ca6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/laravelEmail.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravelEmail.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Console/Commands/ImportData.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/ImportData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Console/Commands/PhoneHuihuaCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Commands/PhoneHuihuaCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reoisitory/MailGunRespository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/MailGunRespository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Reoisitory/RingcentralReoisitory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/excel.php" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,12 +150,6 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet" />
-      <path value="$PROJECT_DIR$/vendor/myclabs/php-enum" />
-      <path value="$PROJECT_DIR$/vendor/maatwebsite/excel" />
-      <path value="$PROJECT_DIR$/vendor/maennchen/zipstream-php" />
-      <path value="$PROJECT_DIR$/vendor/markbaker/matrix" />
-      <path value="$PROJECT_DIR$/vendor/markbaker/complex" />
       <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
       <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
       <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
@@ -187,6 +182,8 @@
       <path value="$PROJECT_DIR$/vendor/stancl/tenancy" />
       <path value="$PROJECT_DIR$/vendor/stancl/virtualcolumn" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/box/spout" />
+      <path value="$PROJECT_DIR$/vendor/dcat/easy-excel" />
     </include_path>
   </component>
   <component name="ProjectId" id="1enxBozQ4To8nTFNWJmgmm4Bhsg" />
@@ -300,7 +297,8 @@
       <workItem from="1629767346362" duration="526000" />
       <workItem from="1629767914612" duration="5892000" />
       <workItem from="1629863336742" duration="766000" />
-      <workItem from="1630026693593" duration="701000" />
+      <workItem from="1630026693593" duration="5369000" />
+      <workItem from="1630114832129" duration="1121000" />
     </task>
     <servers />
   </component>
@@ -324,10 +322,18 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="184" y="112" width="1071" height="752" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1625883556832" />
-    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup" timestamp="1621820138032">
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog" timestamp="1630028526251">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1621820138032" />
+    <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.0.1440.900@0.0.1440.900" timestamp="1630028526251" />
+    <state x="418" y="205" width="604" height="490" key="find.popup" timestamp="1630028822584">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="418" y="205" width="604" height="490" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1630028822584" />
+    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup" timestamp="1630115369222">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="140" width="670" height="760" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1630115369222" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

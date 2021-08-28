@@ -4,9 +4,12 @@ namespace App\Console\Commands;
 
 use App\Import;
 use App\Imports\UsersImport;
+use App\User;
 use Illuminate\Console\Command;
-use Maatwebsite\Excel\Facades\Excel;
-use Maatwebsite\Excel\Validators\ValidationException;
+
+use Dcat\EasyExcel\Excel;
+use Dcat\EasyExcel\Contracts\Sheet as SheetInterface;
+use Dcat\EasyExcel\Support\SheetCollection;
 
 class ImportData extends Command
 {
@@ -42,32 +45,62 @@ class ImportData extends Command
     public function handle()
     {
         ini_set('memory_limit', '-1');
-        Import::where('is_send',0)->chunk(1,function ($items){
-            foreach ($items as $item){
+        $this->info($this->convertSize(memory_get_usage()));
+        Import::where('is_send', 0)->chunk(1, function ($items) {
+            foreach ($items as $item) {
                 /**
                  * @var Import $item
                  */
                 try {
                     $this->output->title('Starting import');
-                    Excel::import((new UsersImport($item->tag_id,$item->admin_id))->withOutput($this->output),storage_path('app/'.$item->name));
-                    $item->is_send=1;
+
+                    Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item) {
+
+                        // 每100行数据为一批数据进行读取
+                        $chunkSize = 100;
+
+                        $sheet->chunk($chunkSize, function (SheetCollection $collection) use ($item) {
+
+                            $this->info($this->convertSize(memory_get_usage()));
+
+                            // 此处的数组下标依然是excel表中数据行的行号
+                            $collection = $collection->toArray();
+                            foreach ($collection as $row) {
+                                $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
+                                $this->error($user->id);
+                                if (!$user && $row['phone']) {
+                                    $user = new User();
+                                    $user->name = $row['name'] ?? '';
+                                    $user->email = $row['email'] ?? '';
+                                    $user->phone = $row['phone'] ?? '';
+                                    $user->country = $row['country'];
+                                    $user->province = $row['province'];
+                                    $user->password = bcrypt('123456');
+                                    $user->city = $row['city'];
+                                    $user->tag_id = $item->tag_id;
+                                    $user->since = $row['since'];
+                                    $user->admin_id = $item->admin_id;
+                                    $user->save();
+                                    $this->info($user->id.'新');
+
+                                }
+                            }
+                        });
+                    });
+                    $item->is_send = 1;
                     $item->save();
                     $this->info($item->name);
                     $this->output->success('Import successful');
                     \Log::info('完成');
-                }catch (ValidationException $exception){
-                    $failures = $exception->failures();
-                    foreach ($failures as $failure) {
-                        $failure->row(); // row that went wrong
-                        $failure->attribute(); // either heading key (if using heading row concern) or column index
-                        $failure->errors(); // Actual error messages from Laravel validator
-                        $failure->values(); // The values of the row that has failed.
-                    }
-                } catch (\Exception $exception){
-                    \Log::info('excel出错',[$exception->getMessage()]);
+                } catch (\Exception $exception) {
+                    \Log::info('excel出错', [$exception->getMessage()]);
                 }
             }
         });
 
+    }
+    function convertSize($size){
+        $unit=array('byte','kb','mb','gb','tb','pb');
+        return round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
     }
 }
