@@ -94,6 +94,7 @@ class ImportData extends Command
                                 $this->info($row['phone']);
 
                             } else {
+                                $this->info($row['phone']);
                                 $this->info($num++);
                             }
                         }
