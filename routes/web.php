@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function (Request  $request) {
 
-return redirect()->to('/admin');
+    return response()->download( storage_path('app/' . $request->name), 'filename.excel');
+
 });
