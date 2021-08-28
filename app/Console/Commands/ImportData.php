@@ -59,7 +59,7 @@ class ImportData extends Command
                         // 每100行数据为一批数据进行读取
                         $chunkSize = 100;
 
-                        $sheet->chunk($chunkSize, function (SheetCollection $collection) use ($item) {
+                        $sheet->chunk($chunkSize, function (SheetCollection $collection) use ($item,$num) {
 
                             $this->info($this->convertSize(memory_get_usage()));
 
