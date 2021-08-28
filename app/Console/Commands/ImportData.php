@@ -51,7 +51,7 @@ class ImportData extends Command
                 /**
                  * @var Import $item
                  */
-                try {
+
                     $this->output->title('Starting import');
 
                     Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item) {
@@ -92,9 +92,7 @@ class ImportData extends Command
                     $this->info($item->name);
                     $this->output->success('Import successful');
                     \Log::info('完成');
-                } catch (\Exception $exception) {
-                    \Log::info('excel出错', [$exception->getMessage()]);
-                }
+
             }
         });
 
