@@ -52,65 +52,66 @@ class ImportData extends Command
                  * @var Import $item
                  */
 
-                    $this->output->title('Starting import');
-                    $num=0;
+                $this->output->title('Starting import');
+                $num = 0;
 
 
+                Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item, $num) {
 
-                    Excel::import(storage_path('app/' . $item->name))->each(function (SheetInterface $sheet) use ($item,$num) {
+                    // 每100行数据为一批数据进行读取
+                    $chunkSize = 100;
 
-                        // 每100行数据为一批数据进行读取
-                        $chunkSize = 100;
+                    $sheet->chunk($chunkSize, function (SheetCollection $collection) use ($item, $num) {
 
-                        $sheet->chunk($chunkSize, function (SheetCollection $collection) use ($item,$num) {
+                        $this->info($this->convertSize(memory_get_usage()));
 
-                            $this->info($this->convertSize(memory_get_usage()));
+                        // 此处的数组下标依然是excel表中数据行的行号
+                        $collection = $collection->toArray();
 
-                            // 此处的数组下标依然是excel表中数据行的行号
-                            $collection = $collection->toArray();
-
-                            foreach ($collection as $row) {
-                                try {
-
+                        foreach ($collection as $row) {
+                            try {
                                 $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
-                            }catch (\Exception $exception ){
+                            } catch (\Exception $exception) {
                                 $this->error($exception->getMessage());
+                                dd($item->name);
                                 dd($row);
                             }
-                                if (!$user && $row['phone']) {
-                                    $user = new User();
-                                    $user->name = $row['name'] ?? '';
-                                    $user->email = $row['email'] ?? '';
-                                    $user->phone = $row['phone'] ?? '';
-                                    $user->country = $row['country'] ?? '';
-                                    $user->province = $row['province'] ?? '';
-                                    $user->password = bcrypt('123456');
-                                    $user->city = $row['city'] ?? '';
-                                    $user->tag_id = $item->tag_id;
-                                    $user->since = $row['since'] ?? '';
-                                    $user->admin_id = $item->admin_id;
-                                    $user->save();
-                                    $this->info($num++);
+                            if (!$user && $row['phone']) {
+                                $user = new User();
+                                $user->name = $row['name'] ?? '';
+                                $user->email = $row['email'] ?? '';
+                                $user->phone = $row['phone'] ?? '';
+                                $user->country = $row['country'] ?? '';
+                                $user->province = $row['province'] ?? '';
+                                $user->password = bcrypt('123456');
+                                $user->city = $row['city'] ?? '';
+                                $user->tag_id = $item->tag_id;
+                                $user->since = $row['since'] ?? '';
+                                $user->admin_id = $item->admin_id;
+                                $user->save();
+                                $this->info($num++);
 
-                                }else{
-                                    $this->info($num++);
-                                }
+                            } else {
+                                $this->info($num++);
                             }
-                        });
+                        }
                     });
+                });
 
-                    $item->is_send = 1;
-                    $item->save();
-                    $this->info($item->name);
-                    $this->output->success('Import successful');
-                    \Log::info('完成');
+                $item->is_send = 1;
+                $item->save();
+                $this->info($item->name);
+                $this->output->success('Import successful');
+                \Log::info('完成');
 
             }
         });
 
     }
-    function convertSize($size){
-        $unit=array('byte','kb','mb','gb','tb','pb');
-        return round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
+
+    function convertSize($size)
+    {
+        $unit = array('byte', 'kb', 'mb', 'gb', 'tb', 'pb');
+        return round($size / pow(1024, ($i = floor(log($size, 1024)))), 2) . ' ' . $unit[$i];
     }
 }
