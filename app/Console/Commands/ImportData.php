@@ -74,8 +74,7 @@ class ImportData extends Command
                                 $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
                             } catch (\Exception $exception) {
                                 $this->error($exception->getMessage());
-                                dd($item->name);
-                                dd($row);
+                                continue;
                             }
                             if (!$user && $row['phone']) {
                                 $user = new User();
