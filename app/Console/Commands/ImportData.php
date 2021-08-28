@@ -75,12 +75,12 @@ class ImportData extends Command
                                     $user->name = $row['name'] ?? '';
                                     $user->email = $row['email'] ?? '';
                                     $user->phone = $row['phone'] ?? '';
-                                    $user->country = $row['country'];
-                                    $user->province = $row['province'];
+                                    $user->country = $row['country'] ?? '';
+                                    $user->province = $row['province'] ?? '';
                                     $user->password = bcrypt('123456');
-                                    $user->city = $row['city'];
+                                    $user->city = $row['city'] ?? '';
                                     $user->tag_id = $item->tag_id;
-                                    $user->since = $row['since'];
+                                    $user->since = $row['since'] ?? '';
                                     $user->admin_id = $item->admin_id;
                                     $user->save();
                                     $this->info($user->id.'新');
