@@ -65,7 +65,9 @@ class ImportData extends Command
 
                             // 此处的数组下标依然是excel表中数据行的行号
                             $collection = $collection->toArray();
+
                             foreach ($collection as $row) {
+                                dd($row);
                                 $user = User::where('phone', (string)$row['phone'])->where('tag_id', $item->tag_id)->first();
                                 $this->error($user->id);
                                 if (!$user && $row['phone']) {
