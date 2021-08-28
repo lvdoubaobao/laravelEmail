@@ -91,6 +91,7 @@ class ImportData extends Command
                                 $user->admin_id = $item->admin_id;
                                 $user->save();
                                 $this->info($num++);
+                                $this->info($row['phone']);
 
                             } else {
                                 $this->info($num++);
