@@ -31,9 +31,12 @@ class ImportData extends Action
             $chunkSize = 2;
             $sheet->chunk($chunkSize, function (SheetCollection $collection)  {
                     $row=$collection->toArray();
-                    if (!isset($row['phone'])){
-                        throw  new \Exception('请选择正确的模板');
+                    foreach ($row as $item){
+                        if (!isset($item['phone'])){
+                            throw  new \Exception('请选择正确的模板');
+                        }
                     }
+
             });
         });
         $import = new Import();
