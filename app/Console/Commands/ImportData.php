@@ -97,7 +97,7 @@ class ImportData extends Command
                             }
                         }
                     });
-                });
+                })->sheet('Sheet1');;
 
                 $item->is_send = 1;
                 $item->save();
